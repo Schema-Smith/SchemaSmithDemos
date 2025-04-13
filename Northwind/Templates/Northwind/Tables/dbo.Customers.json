@@ -1,0 +1,132 @@
+{
+  "Schema": "[dbo]",
+  "Name": "[Customers]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[Address]",
+      "DataType": "NVARCHAR(60)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[City]",
+      "DataType": "NVARCHAR(15)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[CompanyName]",
+      "DataType": "NVARCHAR(40)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ContactName]",
+      "DataType": "NVARCHAR(30)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[ContactTitle]",
+      "DataType": "NVARCHAR(30)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Country]",
+      "DataType": "NVARCHAR(15)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[CustomerID]",
+      "DataType": "NCHAR(5)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Fax]",
+      "DataType": "NVARCHAR(24)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Phone]",
+      "DataType": "NVARCHAR(24)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[PostalCode]",
+      "DataType": "NVARCHAR(10)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Region]",
+      "DataType": "NVARCHAR(15)",
+      "Nullable": true,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[City]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[City]"
+    },
+    {
+      "Name": "[CompanyName]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CompanyName]"
+    },
+    {
+      "Name": "[PK_Customers]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CustomerID]"
+    },
+    {
+      "Name": "[PostalCode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[PostalCode]"
+    },
+    {
+      "Name": "[Region]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Region]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "Schema": "[dbo]",
+  "Name": "[Products]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CategoryID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Discontinued]",
+      "DataType": "BIT",
+      "Nullable": false,
+      "Default": "0",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductName]",
+      "DataType": "NVARCHAR(40)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[QuantityPerUnit]",
+      "DataType": "NVARCHAR(20)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[ReorderLevel]",
+      "DataType": "SMALLINT",
+      "Nullable": true,
+      "Default": "0",
+      "CheckExpression": "[ReorderLevel]>=(0)",
+      "Persisted": false
+    },
+    {
+      "Name": "[SupplierID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[UnitPrice]",
+      "DataType": "MONEY",
+      "Nullable": true,
+      "Default": "0",
+      "CheckExpression": "[UnitPrice]>=(0)",
+      "Persisted": false
+    },
+    {
+      "Name": "[UnitsInStock]",
+      "DataType": "SMALLINT",
+      "Nullable": true,
+      "Default": "0",
+      "CheckExpression": "[UnitsInStock]>=(0)",
+      "Persisted": false
+    },
+    {
+      "Name": "[UnitsOnOrder]",
+      "DataType": "SMALLINT",
+      "Nullable": true,
+      "Default": "0",
+      "CheckExpression": "[UnitsOnOrder]>=(0)",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[CategoriesProducts]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CategoryID]"
+    },
+    {
+      "Name": "[CategoryID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CategoryID]"
+    },
+    {
+      "Name": "[PK_Products]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductID]"
+    },
+    {
+      "Name": "[ProductName]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductName]"
+    },
+    {
+      "Name": "[SupplierID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[SupplierID]"
+    },
+    {
+      "Name": "[SuppliersProducts]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[SupplierID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Products_Categories]",
+      "Columns": "[CategoryID]",
+      "RelatedTableSchema": "[dbo]",
+      "RelatedTable": "[Categories]",
+      "RelatedColumns": "[CategoryID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_Products_Suppliers]",
+      "Columns": "[SupplierID]",
+      "RelatedTableSchema": "[dbo]",
+      "RelatedTable": "[Suppliers]",
+      "RelatedColumns": "[SupplierID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "Northwind",
+  "DatabaseIdentificationScript": "SELECT [name] FROM master.dbo.sysdatabases WHERE [name] = '{{ProductDb}}'",
+  "VersionStampScript": "",
+  "ScriptFolders": [
+    {
+      "FolderPath": "Procedures",
+      "QuenchSlot": 1
+    },
+    {
+      "FolderPath": "Views",
+      "QuenchSlot": 1
+    }
+  ],
+  "ScriptTokens": {},
+  "UpdateFillFactor": true
+}
