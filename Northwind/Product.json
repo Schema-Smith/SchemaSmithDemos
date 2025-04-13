@@ -6,22 +6,5 @@
   ],
   "ScriptTokens": {
     "ProductDb": "Northwind"
-  },
-  "ScriptFolders": [
-    {
-      "FolderPath": "Server Configs",
-      "ServerToQuench": 2
-    },
-    {
-      "FolderPath": "Setup DB Users"
-    },
-    {
-      "FolderPath": "Jobs",
-      "ServerToQuench": 2,
-      "QuenchSlot": 1
-    }
-  ],
-  "BranchNameFile": "<repo_path>\\.git\\HEAD",
-  "BeforeBranchNameMask": "ref: refs/heads/",
-  "AfterBranchNameMask": ""
+  }
 }
