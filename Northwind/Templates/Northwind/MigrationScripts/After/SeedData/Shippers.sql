@@ -1,14 +1,12 @@
-set quoted_identifier on
+set identity_insert Shippers on
 go
-set identity_insert "Shippers" on
+ALTER TABLE Shippers NOCHECK CONSTRAINT ALL
 go
-ALTER TABLE "Shippers" NOCHECK CONSTRAINT ALL
+INSERT Shippers(ShipperID,CompanyName,Phone) VALUES(1,'Speedy Express','(503) 555-9831')
+INSERT Shippers(ShipperID,CompanyName,Phone) VALUES(2,'United Package','(503) 555-3199')
+INSERT Shippers(ShipperID,CompanyName,Phone) VALUES(3,'Federal Shipping','(503) 555-9931')
 go
-INSERT "Shippers"("ShipperID","CompanyName","Phone") VALUES(1,'Speedy Express','(503) 555-9831')
-INSERT "Shippers"("ShipperID","CompanyName","Phone") VALUES(2,'United Package','(503) 555-3199')
-INSERT "Shippers"("ShipperID","CompanyName","Phone") VALUES(3,'Federal Shipping','(503) 555-9931')
+set identity_insert Shippers off
 go
-set identity_insert "Shippers" off
-go
-ALTER TABLE "Shippers" CHECK CONSTRAINT ALL
+ALTER TABLE Shippers CHECK CONSTRAINT ALL
 go
