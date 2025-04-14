@@ -1,0 +1,197 @@
+{
+  "Schema": "[HumanResources]",
+  "Name": "[Employee]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BirthDate]",
+      "DataType": "DATE",
+      "Nullable": false,
+      "CheckExpression": "[BirthDate]>='1930-01-01' AND [BirthDate]<=dateadd(year,(-18),getdate())",
+      "Persisted": false
+    },
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CurrentFlag]",
+      "DataType": "FLAG",
+      "Nullable": false,
+      "Default": "1",
+      "Persisted": false
+    },
+    {
+      "Name": "[Gender]",
+      "DataType": "NCHAR(1)",
+      "Nullable": false,
+      "CheckExpression": "upper([Gender])='F' OR upper([Gender])='M'",
+      "Persisted": false
+    },
+    {
+      "Name": "[HireDate]",
+      "DataType": "DATE",
+      "Nullable": false,
+      "CheckExpression": "[HireDate]>='1996-07-01' AND [HireDate]<=dateadd(day,(1),getdate())",
+      "Persisted": false
+    },
+    {
+      "Name": "[JobTitle]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[LoginID]",
+      "DataType": "NVARCHAR(256)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[MaritalStatus]",
+      "DataType": "NCHAR(1)",
+      "Nullable": false,
+      "CheckExpression": "upper([MaritalStatus])='S' OR upper([MaritalStatus])='M'",
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[NationalIDNumber]",
+      "DataType": "NVARCHAR(15)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[OrganizationLevel]",
+      "DataType": "SMALLINT",
+      "Nullable": true,
+      "ComputedExpression": "[OrganizationNode].[GetLevel]()",
+      "Persisted": false
+    },
+    {
+      "Name": "[OrganizationNode]",
+      "DataType": "HIERARCHYID",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[SalariedFlag]",
+      "DataType": "FLAG",
+      "Nullable": false,
+      "Default": "1",
+      "Persisted": false
+    },
+    {
+      "Name": "[SickLeaveHours]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "Default": "0",
+      "CheckExpression": "[SickLeaveHours]>=(0) AND [SickLeaveHours]<=(120)",
+      "Persisted": false
+    },
+    {
+      "Name": "[VacationHours]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "Default": "0",
+      "CheckExpression": "[VacationHours]>=(-40) AND [VacationHours]<=(240)",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Employee_LoginID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[LoginID]"
+    },
+    {
+      "Name": "[AK_Employee_NationalIDNumber]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[NationalIDNumber]"
+    },
+    {
+      "Name": "[AK_Employee_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_Employee_OrganizationLevel_OrganizationNode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[OrganizationLevel],[OrganizationNode]"
+    },
+    {
+      "Name": "[IX_Employee_OrganizationNode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[OrganizationNode]"
+    },
+    {
+      "Name": "[PK_Employee_BusinessEntityID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Employee_Person_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Person]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

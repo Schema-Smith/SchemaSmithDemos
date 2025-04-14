@@ -1,0 +1,96 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductReview]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[Comments]",
+      "DataType": "NVARCHAR(3850)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[EmailAddress]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductReviewID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Rating]",
+      "DataType": "INT",
+      "Nullable": false,
+      "CheckExpression": "[Rating]>=(1) AND [Rating]<=(5)",
+      "Persisted": false
+    },
+    {
+      "Name": "[ReviewDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ReviewerName]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_ProductReview_ProductID_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductID],[ReviewerName]",
+      "IncludeColumns": "[Comments]"
+    },
+    {
+      "Name": "[PK_ProductReview_ProductReviewID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductReviewID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductReview_Product_ProductID]",
+      "Columns": "[ProductID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Product]",
+      "RelatedColumns": "[ProductID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "Schema": "[Person]",
+  "Name": "[EmailAddress]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[EmailAddress]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[EmailAddressID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_EmailAddress_EmailAddress]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[EmailAddress]"
+    },
+    {
+      "Name": "[PK_EmailAddress_BusinessEntityID_EmailAddressID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[EmailAddressID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_EmailAddress_Person_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Person]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

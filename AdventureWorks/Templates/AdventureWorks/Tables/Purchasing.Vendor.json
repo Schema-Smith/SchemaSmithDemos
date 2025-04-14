@@ -1,0 +1,96 @@
+{
+  "Schema": "[Purchasing]",
+  "Name": "[Vendor]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[AccountNumber]",
+      "DataType": "ACCOUNTNUMBER",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ActiveFlag]",
+      "DataType": "FLAG",
+      "Nullable": false,
+      "Default": "1",
+      "Persisted": false
+    },
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CreditRating]",
+      "DataType": "TINYINT",
+      "Nullable": false,
+      "CheckExpression": "[CreditRating]>=(1) AND [CreditRating]<=(5)",
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[PreferredVendorStatus]",
+      "DataType": "FLAG",
+      "Nullable": false,
+      "Default": "1",
+      "Persisted": false
+    },
+    {
+      "Name": "[PurchasingWebServiceURL]",
+      "DataType": "NVARCHAR(1024)",
+      "Nullable": true,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Vendor_AccountNumber]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AccountNumber]"
+    },
+    {
+      "Name": "[PK_Vendor_BusinessEntityID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Vendor_BusinessEntity_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[BusinessEntity]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

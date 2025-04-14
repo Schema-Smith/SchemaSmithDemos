@@ -1,0 +1,87 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductSubcategory]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductCategoryID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductSubcategoryID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_ProductSubcategory_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Name]"
+    },
+    {
+      "Name": "[AK_ProductSubcategory_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[PK_ProductSubcategory_ProductSubcategoryID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductSubcategoryID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductSubcategory_ProductCategory_ProductCategoryID]",
+      "Columns": "[ProductCategoryID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[ProductCategory]",
+      "RelatedColumns": "[ProductCategoryID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

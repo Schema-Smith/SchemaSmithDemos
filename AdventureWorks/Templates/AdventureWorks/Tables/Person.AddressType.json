@@ -1,0 +1,70 @@
+{
+  "Schema": "[Person]",
+  "Name": "[AddressType]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[AddressTypeID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_AddressType_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Name]"
+    },
+    {
+      "Name": "[AK_AddressType_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[PK_AddressType_AddressTypeID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AddressTypeID]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

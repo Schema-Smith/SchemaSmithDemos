@@ -1,0 +1,84 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[ShoppingCartItem]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[DateCreated]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Quantity]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Default": "1",
+      "CheckExpression": "[Quantity]>=(1)",
+      "Persisted": false
+    },
+    {
+      "Name": "[ShoppingCartID]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ShoppingCartItemID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_ShoppingCartItem_ShoppingCartID_ProductID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ShoppingCartID],[ProductID]"
+    },
+    {
+      "Name": "[PK_ShoppingCartItem_ShoppingCartItemID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ShoppingCartItemID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ShoppingCartItem_Product_ProductID]",
+      "Columns": "[ProductID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Product]",
+      "RelatedColumns": "[ProductID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

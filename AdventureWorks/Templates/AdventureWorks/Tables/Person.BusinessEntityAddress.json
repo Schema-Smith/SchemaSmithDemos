@@ -1,0 +1,116 @@
+{
+  "Schema": "[Person]",
+  "Name": "[BusinessEntityAddress]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[AddressID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[AddressTypeID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_BusinessEntityAddress_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_BusinessEntityAddress_AddressID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AddressID]"
+    },
+    {
+      "Name": "[IX_BusinessEntityAddress_AddressTypeID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AddressTypeID]"
+    },
+    {
+      "Name": "[PK_BusinessEntityAddress_BusinessEntityID_AddressID_AddressTypeID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[AddressID],[AddressTypeID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_BusinessEntityAddress_Address_AddressID]",
+      "Columns": "[AddressID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Address]",
+      "RelatedColumns": "[AddressID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_BusinessEntityAddress_AddressType_AddressTypeID]",
+      "Columns": "[AddressTypeID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[AddressType]",
+      "RelatedColumns": "[AddressTypeID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[BusinessEntity]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

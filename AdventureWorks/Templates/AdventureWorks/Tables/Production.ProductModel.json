@@ -1,0 +1,102 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductModel]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CatalogDescription]",
+      "DataType": "XML",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Instructions]",
+      "DataType": "XML",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductModelID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_ProductModel_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Name]"
+    },
+    {
+      "Name": "[AK_ProductModel_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[PK_ProductModel_ProductModelID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductModelID]"
+    },
+    {
+      "Name": "[PXML_ProductModel_CatalogDescription]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CatalogDescription]"
+    },
+    {
+      "Name": "[PXML_ProductModel_Instructions]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Instructions]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

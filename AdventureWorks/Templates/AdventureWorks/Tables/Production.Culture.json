@@ -1,0 +1,52 @@
+{
+  "Schema": "[Production]",
+  "Name": "[Culture]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CultureID]",
+      "DataType": "NCHAR(6)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Culture_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Name]"
+    },
+    {
+      "Name": "[PK_Culture_CultureID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CultureID]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

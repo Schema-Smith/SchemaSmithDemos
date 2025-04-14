@@ -1,0 +1,167 @@
+{
+  "Schema": "[Production]",
+  "Name": "[Document]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[ChangeNumber]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Default": "0",
+      "Persisted": false
+    },
+    {
+      "Name": "[Document]",
+      "DataType": "VARBINARY(MAX)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[DocumentLevel]",
+      "DataType": "SMALLINT",
+      "Nullable": true,
+      "ComputedExpression": "[DocumentNode].[GetLevel]()",
+      "Persisted": false
+    },
+    {
+      "Name": "[DocumentNode]",
+      "DataType": "HIERARCHYID",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[DocumentSummary]",
+      "DataType": "NVARCHAR(MAX)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[FileExtension]",
+      "DataType": "NVARCHAR(8)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[FileName]",
+      "DataType": "NVARCHAR(400)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[FolderFlag]",
+      "DataType": "BIT",
+      "Nullable": false,
+      "Default": "0",
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Owner]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Revision]",
+      "DataType": "NCHAR(5)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Status]",
+      "DataType": "TINYINT",
+      "Nullable": false,
+      "CheckExpression": "[Status]>=(1) AND [Status]<=(3)",
+      "Persisted": false
+    },
+    {
+      "Name": "[Title]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Document_DocumentLevel_DocumentNode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[DocumentLevel],[DocumentNode]"
+    },
+    {
+      "Name": "[AK_Document_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_Document_FileName_Revision]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[FileName],[Revision]"
+    },
+    {
+      "Name": "[PK_Document_DocumentNode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[DocumentNode]"
+    },
+    {
+      "Name": "[UQ__Document__F73921F72FBAFDC2]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": true,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Document_Employee_Owner]",
+      "Columns": "[Owner]",
+      "RelatedTableSchema": "[HumanResources]",
+      "RelatedTable": "[Employee]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

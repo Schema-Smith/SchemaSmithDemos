@@ -1,0 +1,61 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductModelIllustration]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[IllustrationID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductModelID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_ProductModelIllustration_ProductModelID_IllustrationID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductModelID],[IllustrationID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductModelIllustration_Illustration_IllustrationID]",
+      "Columns": "[IllustrationID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Illustration]",
+      "RelatedColumns": "[IllustrationID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_ProductModelIllustration_ProductModel_ProductModelID]",
+      "Columns": "[ProductModelID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[ProductModel]",
+      "RelatedColumns": "[ProductModelID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[Customer]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[AccountNumber]",
+      "DataType": "VARCHAR(10)",
+      "Nullable": false,
+      "ComputedExpression": "isnull('AW'+[dbo].[ufnLeadingZeros]([CustomerID]),'')",
+      "Persisted": false
+    },
+    {
+      "Name": "[CustomerID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[PersonID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[StoreID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[TerritoryID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Customer_AccountNumber]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AccountNumber]"
+    },
+    {
+      "Name": "[AK_Customer_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_Customer_TerritoryID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[TerritoryID]"
+    },
+    {
+      "Name": "[PK_Customer_CustomerID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CustomerID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Customer_Person_PersonID]",
+      "Columns": "[PersonID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Person]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_Customer_SalesTerritory_TerritoryID]",
+      "Columns": "[TerritoryID]",
+      "RelatedTableSchema": "[Sales]",
+      "RelatedTable": "[SalesTerritory]",
+      "RelatedColumns": "[TerritoryID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_Customer_Store_StoreID]",
+      "Columns": "[StoreID]",
+      "RelatedTableSchema": "[Sales]",
+      "RelatedTable": "[Store]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

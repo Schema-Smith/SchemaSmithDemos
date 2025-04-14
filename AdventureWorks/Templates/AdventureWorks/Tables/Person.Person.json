@@ -1,0 +1,189 @@
+{
+  "Schema": "[Person]",
+  "Name": "[Person]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[AdditionalContactInfo]",
+      "DataType": "XML",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Demographics]",
+      "DataType": "XML",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[EmailPromotion]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Default": "0",
+      "CheckExpression": "[EmailPromotion]>=(0) AND [EmailPromotion]<=(2)",
+      "Persisted": false
+    },
+    {
+      "Name": "[FirstName]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[LastName]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[MiddleName]",
+      "DataType": "NAME",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[NameStyle]",
+      "DataType": "NAMESTYLE",
+      "Nullable": false,
+      "Default": "0",
+      "Persisted": false
+    },
+    {
+      "Name": "[PersonType]",
+      "DataType": "NCHAR(2)",
+      "Nullable": false,
+      "CheckExpression": "[PersonType] IS NULL OR (upper([PersonType])='GC' OR upper([PersonType])='SP' OR upper([PersonType])='EM' OR upper([PersonType])='IN' OR upper([PersonType])='VC' OR upper([PersonType])='SC')",
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Suffix]",
+      "DataType": "NVARCHAR(10)",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[Title]",
+      "DataType": "NVARCHAR(8)",
+      "Nullable": true,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Person_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_Person_LastName_FirstName_MiddleName]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[LastName],[FirstName],[MiddleName]"
+    },
+    {
+      "Name": "[PK_Person_BusinessEntityID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID]"
+    },
+    {
+      "Name": "[PXML_Person_AddContact]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[AdditionalContactInfo]"
+    },
+    {
+      "Name": "[PXML_Person_Demographics]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Demographics]"
+    },
+    {
+      "Name": "[XMLPATH_Person_Demographics]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Demographics]"
+    },
+    {
+      "Name": "[XMLPROPERTY_Person_Demographics]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Demographics]"
+    },
+    {
+      "Name": "[XMLVALUE_Person_Demographics]",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Demographics]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_Person_BusinessEntity_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[BusinessEntity]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

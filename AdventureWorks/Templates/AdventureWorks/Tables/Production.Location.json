@@ -1,0 +1,68 @@
+{
+  "Schema": "[Production]",
+  "Name": "[Location]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[Availability]",
+      "DataType": "DECIMAL(8, 2)",
+      "Nullable": false,
+      "Default": "0.00",
+      "CheckExpression": "[Availability]>=(0.00)",
+      "Persisted": false
+    },
+    {
+      "Name": "[CostRate]",
+      "DataType": "SMALLMONEY",
+      "Nullable": false,
+      "Default": "0.00",
+      "CheckExpression": "[CostRate]>=(0.00)",
+      "Persisted": false
+    },
+    {
+      "Name": "[LocationID]",
+      "DataType": "SMALLINT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Name]",
+      "DataType": "NAME",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_Location_Name]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[Name]"
+    },
+    {
+      "Name": "[PK_Location_LocationID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[LocationID]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

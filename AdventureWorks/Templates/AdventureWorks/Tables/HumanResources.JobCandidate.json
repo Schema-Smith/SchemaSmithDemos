@@ -1,0 +1,69 @@
+{
+  "Schema": "[HumanResources]",
+  "Name": "[JobCandidate]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": true,
+      "Persisted": false
+    },
+    {
+      "Name": "[JobCandidateID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Resume]",
+      "DataType": "XML",
+      "Nullable": true,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_JobCandidate_BusinessEntityID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID]"
+    },
+    {
+      "Name": "[PK_JobCandidate_JobCandidateID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[JobCandidateID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_JobCandidate_Employee_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[HumanResources]",
+      "RelatedTable": "[Employee]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

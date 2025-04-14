@@ -1,0 +1,66 @@
+{
+  "Schema": "[HumanResources]",
+  "Name": "[EmployeePayHistory]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[PayFrequency]",
+      "DataType": "TINYINT",
+      "Nullable": false,
+      "CheckExpression": "[PayFrequency]=(2) OR [PayFrequency]=(1)",
+      "Persisted": false
+    },
+    {
+      "Name": "[Rate]",
+      "DataType": "MONEY",
+      "Nullable": false,
+      "CheckExpression": "[Rate]>=(6.50) AND [Rate]<=(200.00)",
+      "Persisted": false
+    },
+    {
+      "Name": "[RateChangeDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_EmployeePayHistory_BusinessEntityID_RateChangeDate]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[RateChangeDate]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_EmployeePayHistory_Employee_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[HumanResources]",
+      "RelatedTable": "[Employee]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

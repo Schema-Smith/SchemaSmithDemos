@@ -1,0 +1,116 @@
+{
+  "Schema": "[Person]",
+  "Name": "[BusinessEntityContact]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ContactTypeID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[PersonID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_BusinessEntityContact_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[IX_BusinessEntityContact_ContactTypeID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ContactTypeID]"
+    },
+    {
+      "Name": "[IX_BusinessEntityContact_PersonID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[PersonID]"
+    },
+    {
+      "Name": "[PK_BusinessEntityContact_BusinessEntityID_PersonID_ContactTypeID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[PersonID],[ContactTypeID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_BusinessEntityContact_BusinessEntity_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[BusinessEntity]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_BusinessEntityContact_ContactType_ContactTypeID]",
+      "Columns": "[ContactTypeID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[ContactType]",
+      "RelatedColumns": "[ContactTypeID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_BusinessEntityContact_Person_PersonID]",
+      "Columns": "[PersonID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Person]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "Schema": "[Purchasing]",
+  "Name": "[PurchaseOrderDetail]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[DueDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[LineTotal]",
+      "DataType": "MONEY",
+      "Nullable": false,
+      "ComputedExpression": "isnull([OrderQty]*[UnitPrice],(0.00))",
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[OrderQty]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "CheckExpression": "[OrderQty]>(0)",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[PurchaseOrderDetailID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[PurchaseOrderID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ReceivedQty]",
+      "DataType": "DECIMAL(8, 2)",
+      "Nullable": false,
+      "CheckExpression": "[ReceivedQty]>=(0.00)",
+      "Persisted": false
+    },
+    {
+      "Name": "[RejectedQty]",
+      "DataType": "DECIMAL(8, 2)",
+      "Nullable": false,
+      "CheckExpression": "[RejectedQty]>=(0.00)",
+      "Persisted": false
+    },
+    {
+      "Name": "[StockedQty]",
+      "DataType": "DECIMAL(9, 2)",
+      "Nullable": false,
+      "ComputedExpression": "isnull([ReceivedQty]-[RejectedQty],(0.00))",
+      "Persisted": false
+    },
+    {
+      "Name": "[UnitPrice]",
+      "DataType": "MONEY",
+      "Nullable": false,
+      "CheckExpression": "[UnitPrice]>=(0.00)",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_PurchaseOrderDetail_ProductID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductID]"
+    },
+    {
+      "Name": "[PK_PurchaseOrderDetail_PurchaseOrderID_PurchaseOrderDetailID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[PurchaseOrderID],[PurchaseOrderDetailID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_PurchaseOrderDetail_Product_ProductID]",
+      "Columns": "[ProductID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Product]",
+      "RelatedColumns": "[ProductID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_PurchaseOrderDetail_PurchaseOrderHeader_PurchaseOrderID]",
+      "Columns": "[PurchaseOrderID]",
+      "RelatedTableSchema": "[Purchasing]",
+      "RelatedTable": "[PurchaseOrderHeader]",
+      "RelatedColumns": "[PurchaseOrderID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

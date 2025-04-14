@@ -1,0 +1,70 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[CreditCard]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CardNumber]",
+      "DataType": "NVARCHAR(25)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CardType]",
+      "DataType": "NVARCHAR(50)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CreditCardID]",
+      "DataType": "INT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ExpMonth]",
+      "DataType": "TINYINT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ExpYear]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_CreditCard_CardNumber]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CardNumber]"
+    },
+    {
+      "Name": "[PK_CreditCard_CreditCardID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CreditCardID]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

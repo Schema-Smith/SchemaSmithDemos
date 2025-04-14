@@ -1,0 +1,47 @@
+{
+  "Schema": "[dbo]",
+  "Name": "[AWBuildVersion]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[Database Version]",
+      "DataType": "NVARCHAR(25)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[SystemInformationID]",
+      "DataType": "TINYINT IDENTITY(1, 1)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[VersionDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_AWBuildVersion_SystemInformationID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[SystemInformationID]"
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

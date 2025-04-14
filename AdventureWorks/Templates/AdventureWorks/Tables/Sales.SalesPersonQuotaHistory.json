@@ -1,0 +1,77 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[SalesPersonQuotaHistory]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[QuotaDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[SalesQuota]",
+      "DataType": "MONEY",
+      "Nullable": false,
+      "CheckExpression": "[SalesQuota]>(0.00)",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[AK_SalesPersonQuotaHistory_rowguid]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[rowguid]"
+    },
+    {
+      "Name": "[PK_SalesPersonQuotaHistory_BusinessEntityID_QuotaDate]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[QuotaDate]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_SalesPersonQuotaHistory_SalesPerson_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Sales]",
+      "RelatedTable": "[SalesPerson]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

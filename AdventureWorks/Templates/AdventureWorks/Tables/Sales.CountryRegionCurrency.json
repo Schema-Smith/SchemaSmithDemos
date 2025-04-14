@@ -1,0 +1,72 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[CountryRegionCurrency]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CountryRegionCode]",
+      "DataType": "NVARCHAR(3)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CurrencyCode]",
+      "DataType": "NCHAR(3)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[IX_CountryRegionCurrency_CurrencyCode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": false,
+      "Unique": false,
+      "UniqueConstraint": false,
+      "Clustered": false,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CurrencyCode]"
+    },
+    {
+      "Name": "[PK_CountryRegionCurrency_CountryRegionCode_CurrencyCode]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[CountryRegionCode],[CurrencyCode]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_CountryRegionCurrency_CountryRegion_CountryRegionCode]",
+      "Columns": "[CountryRegionCode]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[CountryRegion]",
+      "RelatedColumns": "[CountryRegionCode]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_CountryRegionCurrency_Currency_CurrencyCode]",
+      "Columns": "[CurrencyCode]",
+      "RelatedTableSchema": "[Sales]",
+      "RelatedTable": "[Currency]",
+      "RelatedColumns": "[CurrencyCode]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

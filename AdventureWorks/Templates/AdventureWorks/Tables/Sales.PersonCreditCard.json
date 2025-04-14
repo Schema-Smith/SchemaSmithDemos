@@ -1,0 +1,61 @@
+{
+  "Schema": "[Sales]",
+  "Name": "[PersonCreditCard]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[BusinessEntityID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[CreditCardID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_PersonCreditCard_BusinessEntityID_CreditCardID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[BusinessEntityID],[CreditCardID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_PersonCreditCard_CreditCard_CreditCardID]",
+      "Columns": "[CreditCardID]",
+      "RelatedTableSchema": "[Sales]",
+      "RelatedTable": "[CreditCard]",
+      "RelatedColumns": "[CreditCardID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_PersonCreditCard_Person_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Person]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

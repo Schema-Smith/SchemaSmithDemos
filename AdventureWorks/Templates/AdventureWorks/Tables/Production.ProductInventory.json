@@ -1,0 +1,89 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductInventory]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[Bin]",
+      "DataType": "TINYINT",
+      "Nullable": false,
+      "CheckExpression": "[Bin]>=(0) AND [Bin]<=(100)",
+      "Persisted": false
+    },
+    {
+      "Name": "[LocationID]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[Quantity]",
+      "DataType": "SMALLINT",
+      "Nullable": false,
+      "Default": "0",
+      "Persisted": false
+    },
+    {
+      "Name": "[rowguid]",
+      "DataType": "UNIQUEIDENTIFIER",
+      "Nullable": false,
+      "Default": "newid()",
+      "Persisted": false
+    },
+    {
+      "Name": "[Shelf]",
+      "DataType": "NVARCHAR(10)",
+      "Nullable": false,
+      "CheckExpression": "[Shelf] like '[A-Za-z]' OR [Shelf]='N/A'",
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_ProductInventory_ProductID_LocationID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductID],[LocationID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductInventory_Location_LocationID]",
+      "Columns": "[LocationID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Location]",
+      "RelatedColumns": "[LocationID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_ProductInventory_Product_ProductID]",
+      "Columns": "[ProductID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Product]",
+      "RelatedColumns": "[ProductID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}

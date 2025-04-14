@@ -1,0 +1,76 @@
+{
+  "Schema": "[Production]",
+  "Name": "[ProductModelProductDescriptionCulture]",
+  "CompressionType": "NONE",
+  "Columns": [
+    {
+      "Name": "[CultureID]",
+      "DataType": "NCHAR(6)",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ModifiedDate]",
+      "DataType": "DATETIME",
+      "Nullable": false,
+      "Default": "getdate()",
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductDescriptionID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    },
+    {
+      "Name": "[ProductModelID]",
+      "DataType": "INT",
+      "Nullable": false,
+      "Persisted": false
+    }
+  ],
+  "Indexes": [
+    {
+      "Name": "[PK_ProductModelProductDescriptionCulture_ProductModelID_ProductDescriptionID_CultureID]",
+      "CompressionType": "NONE",
+      "PrimaryKey": true,
+      "Unique": true,
+      "UniqueConstraint": false,
+      "Clustered": true,
+      "ColumnStore": false,
+      "FillFactor": 0,
+      "IndexColumns": "[ProductModelID],[ProductDescriptionID],[CultureID]"
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductModelProductDescriptionCulture_Culture_CultureID]",
+      "Columns": "[CultureID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Culture]",
+      "RelatedColumns": "[CultureID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID]",
+      "Columns": "[ProductDescriptionID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[ProductDescription]",
+      "RelatedColumns": "[ProductDescriptionID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    },
+    {
+      "Name": "[FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID]",
+      "Columns": "[ProductModelID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[ProductModel]",
+      "RelatedColumns": "[ProductModelID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false
+    }
+  ],
+  "FullTextIndex": {
+  }
+}
