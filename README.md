@@ -6,10 +6,10 @@ The SchemaSmithDemos repository is a collection of well known, freely avaiable, 
 
 Each demo is self contained in one of the following subfolders
 
-| Demo           | Source location                                    |
-| -------------- | -------------------------------------------------- |
-| Northwind      | [Northwind pubs](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/databases/northwind-pubs/instnwnd.sql)         |
-| AdventureWorks | [AdventureWorks OLTP Scripts](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks-oltp-install-script.zip)     |
+| Demo           | Source location                                    | Status |
+| -------------- | -------------------------------------------------- | ------ |
+| Northwind      | [Northwind pubs](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/databases/northwind-pubs/instnwnd.sql)         | Done |
+| AdventureWorks | [AdventureWorks OLTP Scripts](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks-oltp-install-script.zip)     | In progress |
 
 ## Quick Start Guide
 
