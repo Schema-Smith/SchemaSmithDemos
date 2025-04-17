@@ -1,8 +1,8 @@
 services:
   quench-northwind:
-    image: agentsmith71/schemasmithyfree/schemaquench:1.0.0
+    image: schemasmithyfree/schemaquench:latest
     environment:
-      - QuenchSettings_Target__Server=db
+      - QuenchSettings_Target__Server=demoserver
       - QuenchSettings_Target__User=${MSSQL_SA_USERNAME}
       - QuenchSettings_Target__Password=${MSSQL_SA_PASSWORD}
       - QuenchSettings_SchemaPackagePath=/metadata
@@ -10,13 +10,13 @@ services:
     volumes:
       - ./Northwind:/metadata
     depends_on:
-      db:
+      demoserver:
         condition: service_healthy
 
-  db:
+  demoserver:
     build:
-      context: ./db
-      dockerfile: db.Dockerfile
+      context: ./demoserver
+      dockerfile: demoserver.Dockerfile
     restart: always
     ports:
       - "${MSSQL_PORT:-1440}:1433"
@@ -36,7 +36,7 @@ services:
     entrypoint: ["echo"]
     command: ["completed"]
     depends_on:
-      db:
+      demoserver:
         condition: service_healthy
       quench-northwind:
         condition: service_completed_successfully
