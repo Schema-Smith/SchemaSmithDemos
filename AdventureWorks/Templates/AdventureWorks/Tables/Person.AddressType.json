@@ -7,27 +7,39 @@
       "Name": "[AddressTypeID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for AddressType records."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Address type description. For example, Billing, Home, or Shipping."
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -40,7 +52,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_AddressType_rowguid]",
@@ -51,7 +66,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_AddressType_AddressTypeID]",
@@ -62,9 +80,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AddressTypeID]"
+      "IndexColumns": "[AddressTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Types of addresses stored in the Address table. "
   }
 }

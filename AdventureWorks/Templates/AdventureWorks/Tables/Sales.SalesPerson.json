@@ -9,13 +9,19 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[Bonus]>=(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Bonus due if quota is met."
+      }
     },
     {
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID"
+      }
     },
     {
       "Name": "[CommissionPct]",
@@ -23,21 +29,30 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[CommissionPct]>=(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Commision percent received per sale."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     },
     {
       "Name": "[SalesLastYear]",
@@ -45,14 +60,20 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[SalesLastYear]>=(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Sales total of previous year."
+      }
     },
     {
       "Name": "[SalesQuota]",
       "DataType": "MONEY",
       "Nullable": true,
       "CheckExpression": "[SalesQuota]>(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Projected yearly sales."
+      }
     },
     {
       "Name": "[SalesYTD]",
@@ -60,13 +81,19 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[SalesYTD]>=(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Sales total year to date."
+      }
     },
     {
       "Name": "[TerritoryID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Territory currently assigned to. Foreign key to SalesTerritory.SalesTerritoryID."
+      }
     }
   ],
   "Indexes": [
@@ -79,7 +106,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_SalesPerson_BusinessEntityID]",
@@ -90,7 +120,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID]"
+      "IndexColumns": "[BusinessEntityID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -101,7 +134,10 @@
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
+      }
     },
     {
       "Name": "[FK_SalesPerson_SalesTerritory_TerritoryID]",
@@ -110,9 +146,13 @@
       "RelatedTable": "[SalesTerritory]",
       "RelatedColumns": "[TerritoryID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing SalesTerritory.TerritoryID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Sales representative current information."
   }
 }

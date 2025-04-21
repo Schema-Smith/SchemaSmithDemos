@@ -7,20 +7,29 @@
       "Name": "[DocumentNode]",
       "DataType": "HIERARCHYID",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Document identification number. Foreign key to Document.DocumentNode."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
+      }
     }
   ],
   "Indexes": [
@@ -33,7 +42,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductID],[DocumentNode]"
+      "IndexColumns": "[ProductID],[DocumentNode]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -44,7 +56,10 @@
       "RelatedTable": "[Document]",
       "RelatedColumns": "[DocumentNode]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Document.DocumentNode."
+      }
     },
     {
       "Name": "[FK_ProductDocument_Product_ProductID]",
@@ -53,9 +68,13 @@
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Product.ProductID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Cross-reference table mapping products to related product documents."
   }
 }

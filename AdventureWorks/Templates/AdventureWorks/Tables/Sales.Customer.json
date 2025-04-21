@@ -8,45 +8,66 @@
       "DataType": "VARCHAR(10)",
       "Nullable": false,
       "ComputedExpression": "isnull('AW'+[dbo].[ufnLeadingZeros]([CustomerID]),'')",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Unique number identifying the customer assigned by the accounting system."
+      }
     },
     {
       "Name": "[CustomerID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[PersonID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key to Person.BusinessEntityID"
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     },
     {
       "Name": "[StoreID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key to Store.BusinessEntityID"
+      }
     },
     {
       "Name": "[TerritoryID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID."
+      }
     }
   ],
   "Indexes": [
@@ -59,7 +80,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AccountNumber]"
+      "IndexColumns": "[AccountNumber]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_Customer_rowguid]",
@@ -70,7 +94,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[IX_Customer_TerritoryID]",
@@ -81,7 +108,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[TerritoryID]"
+      "IndexColumns": "[TerritoryID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_Customer_CustomerID]",
@@ -92,7 +122,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CustomerID]"
+      "IndexColumns": "[CustomerID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -103,7 +136,10 @@
       "RelatedTable": "[Person]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
+      }
     },
     {
       "Name": "[FK_Customer_SalesTerritory_TerritoryID]",
@@ -112,7 +148,10 @@
       "RelatedTable": "[SalesTerritory]",
       "RelatedColumns": "[TerritoryID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing SalesTerritory.TerritoryID."
+      }
     },
     {
       "Name": "[FK_Customer_Store_StoreID]",
@@ -121,9 +160,13 @@
       "RelatedTable": "[Store]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Store.BusinessEntityID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Current customer information. Also see the Person and Store tables."
   }
 }

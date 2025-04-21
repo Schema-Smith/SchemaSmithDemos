@@ -7,33 +7,48 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
+      }
     },
     {
       "Name": "[ContactTypeID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key.  Foreign key to ContactType.ContactTypeID."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[PersonID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to Person.BusinessEntityID."
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -46,7 +61,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[IX_BusinessEntityContact_ContactTypeID]",
@@ -57,7 +75,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ContactTypeID]"
+      "IndexColumns": "[ContactTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[IX_BusinessEntityContact_PersonID]",
@@ -68,7 +89,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[PersonID]"
+      "IndexColumns": "[PersonID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_BusinessEntityContact_BusinessEntityID_PersonID_ContactTypeID]",
@@ -79,7 +103,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[PersonID],[ContactTypeID]"
+      "IndexColumns": "[BusinessEntityID],[PersonID],[ContactTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -90,7 +117,10 @@
       "RelatedTable": "[BusinessEntity]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID."
+      }
     },
     {
       "Name": "[FK_BusinessEntityContact_ContactType_ContactTypeID]",
@@ -99,7 +129,10 @@
       "RelatedTable": "[ContactType]",
       "RelatedColumns": "[ContactTypeID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing ContactType.ContactTypeID."
+      }
     },
     {
       "Name": "[FK_BusinessEntityContact_Person_PersonID]",
@@ -108,9 +141,13 @@
       "RelatedTable": "[Person]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Cross-reference table mapping stores, vendors, and employees to people"
   }
 }

@@ -8,20 +8,29 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Shipping company name."
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     },
     {
       "Name": "[ShipBase]",
@@ -29,13 +38,19 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[ShipBase]>(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Minimum shipping charge."
+      }
     },
     {
       "Name": "[ShipMethodID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ShipMethod records."
+      }
     },
     {
       "Name": "[ShipRate]",
@@ -43,7 +58,10 @@
       "Nullable": false,
       "Default": "0.00",
       "CheckExpression": "[ShipRate]>(0.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Shipping charge per pound."
+      }
     }
   ],
   "Indexes": [
@@ -56,7 +74,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_ShipMethod_rowguid]",
@@ -67,7 +88,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_ShipMethod_ShipMethodID]",
@@ -78,9 +102,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ShipMethodID]"
+      "IndexColumns": "[ShipMethodID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Shipping company lookup table."
   }
 }

@@ -7,34 +7,49 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Employee identification number. Foreign key to Employee.BusinessEntityID."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[PayFrequency]",
       "DataType": "TINYINT",
       "Nullable": false,
       "CheckExpression": "[PayFrequency]=(2) OR [PayFrequency]=(1)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "1 = Salary received monthly, 2 = Salary received biweekly"
+      }
     },
     {
       "Name": "[Rate]",
       "DataType": "MONEY",
       "Nullable": false,
       "CheckExpression": "[Rate]>=(6.50) AND [Rate]<=(200.00)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Salary hourly rate."
+      }
     },
     {
       "Name": "[RateChangeDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date the change in pay is effective"
+      }
     }
   ],
   "Indexes": [
@@ -47,7 +62,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[RateChangeDate]"
+      "IndexColumns": "[BusinessEntityID],[RateChangeDate]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -58,9 +76,13 @@
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Employee pay history."
   }
 }

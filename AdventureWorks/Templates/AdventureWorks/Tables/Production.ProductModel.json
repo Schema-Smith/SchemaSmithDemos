@@ -7,39 +7,57 @@
       "Name": "[CatalogDescription]",
       "DataType": "XML",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Detailed product catalog information in xml format."
+      }
     },
     {
       "Name": "[Instructions]",
       "DataType": "XML",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Manufacturing instructions in xml format."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product model description."
+      }
     },
     {
       "Name": "[ProductModelID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ProductModel records."
+      }
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -52,7 +70,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_ProductModel_rowguid]",
@@ -63,7 +84,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_ProductModel_ProductModelID]",
@@ -74,7 +98,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductModelID]"
+      "IndexColumns": "[ProductModelID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     },
     {
       "Name": "[PXML_ProductModel_CatalogDescription]",
@@ -84,7 +111,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CatalogDescription]"
+      "IndexColumns": "[CatalogDescription]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary XML index."
+      }
     },
     {
       "Name": "[PXML_ProductModel_Instructions]",
@@ -94,9 +124,25 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Instructions]"
+      "IndexColumns": "[Instructions]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary XML index."
+      }
     }
   ],
-  "FullTextIndex": {
+  "XmlIndexes": [
+    {
+      "Name": "PXML_ProductModel_CatalogDescription",
+      "Column": "CatalogDescription",
+      "IsPrimary": true
+    },
+    {
+      "Name": "PXML_ProductModel_Instructions",
+      "Column": "Instructions",
+      "IsPrimary": true
+    }
+  ],
+  "ExtendedProperties": {
+    "MS_Description": "Product model classification."
   }
 }

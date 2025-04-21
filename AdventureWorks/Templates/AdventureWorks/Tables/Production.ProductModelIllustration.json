@@ -7,20 +7,29 @@
       "Name": "[IllustrationID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to Illustration.IllustrationID."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[ProductModelID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to ProductModel.ProductModelID."
+      }
     }
   ],
   "Indexes": [
@@ -33,7 +42,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductModelID],[IllustrationID]"
+      "IndexColumns": "[ProductModelID],[IllustrationID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -44,7 +56,10 @@
       "RelatedTable": "[Illustration]",
       "RelatedColumns": "[IllustrationID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Illustration.IllustrationID."
+      }
     },
     {
       "Name": "[FK_ProductModelIllustration_ProductModel_ProductModelID]",
@@ -53,9 +68,13 @@
       "RelatedTable": "[ProductModel]",
       "RelatedColumns": "[ProductModelID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing ProductModel.ProductModelID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Cross-reference table mapping product models and illustrations."
   }
 }

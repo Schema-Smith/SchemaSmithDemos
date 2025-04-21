@@ -40,3 +40,12 @@ FROM [HumanResources].[Employee] e
     ON pp.[PhoneNumberTypeID] = pnt.[PhoneNumberTypeID]
     LEFT OUTER JOIN [Person].[EmailAddress] ea
     ON p.[BusinessEntityID] = ea.[BusinessEntityID]
+GO
+IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'HumanResources', N'VIEW',N'vEmployee', NULL,NULL))
+	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Employee names and addresses.' , @level0type=N'SCHEMA',@level0name=N'HumanResources', @level1type=N'VIEW',@level1name=N'vEmployee'
+ELSE
+BEGIN
+	EXEC sys.sp_updateextendedproperty @name=N'MS_Description', @value=N'Employee names and addresses.' , @level0type=N'SCHEMA',@level0name=N'HumanResources', @level1type=N'VIEW',@level1name=N'vEmployee'
+END
+
+GO

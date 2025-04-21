@@ -7,65 +7,95 @@
       "Name": "[DueDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Work order due date."
+      }
     },
     {
       "Name": "[EndDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Work order end date."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[OrderQty]",
       "DataType": "INT",
       "Nullable": false,
       "CheckExpression": "[OrderQty]>(0)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product quantity to build."
+      }
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
+      }
     },
     {
       "Name": "[ScrappedQty]",
       "DataType": "SMALLINT",
       "Nullable": false,
       "CheckExpression": "[ScrappedQty]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Quantity that failed inspection."
+      }
     },
     {
       "Name": "[ScrapReasonID]",
       "DataType": "SMALLINT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Reason for inspection failure."
+      }
     },
     {
       "Name": "[StartDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Work order start date."
+      }
     },
     {
       "Name": "[StockedQty]",
       "DataType": "INT",
       "Nullable": false,
       "ComputedExpression": "isnull([OrderQty]-[ScrappedQty],(0))",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Quantity built and put in inventory."
+      }
     },
     {
       "Name": "[WorkOrderID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for WorkOrder records."
+      }
     }
   ],
   "Indexes": [
@@ -78,7 +108,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductID]"
+      "IndexColumns": "[ProductID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[IX_WorkOrder_ScrapReasonID]",
@@ -89,7 +122,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ScrapReasonID]"
+      "IndexColumns": "[ScrapReasonID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_WorkOrder_WorkOrderID]",
@@ -100,7 +136,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[WorkOrderID]"
+      "IndexColumns": "[WorkOrderID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -111,7 +150,10 @@
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Product.ProductID."
+      }
     },
     {
       "Name": "[FK_WorkOrder_ScrapReason_ScrapReasonID]",
@@ -120,15 +162,22 @@
       "RelatedTable": "[ScrapReason]",
       "RelatedColumns": "[ScrapReasonID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing ScrapReason.ScrapReasonID."
+      }
     }
   ],
   "CheckConstraints": [
     {
       "Name": "[CK_WorkOrder_EndDate]",
-      "Expression": "[EndDate]>=[StartDate] OR [EndDate] IS NULL"
+      "Expression": "[EndDate]>=[StartDate] OR [EndDate] IS NULL",
+      "ExtendedProperties": {
+        "MS_Description": "Check constraint [EndDate] >= [StartDate] OR [EndDate] IS NULL"
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Manufacturing work orders."
   }
 }
