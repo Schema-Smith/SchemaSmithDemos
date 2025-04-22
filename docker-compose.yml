@@ -13,6 +13,20 @@ services:
       demoserver:
         condition: service_healthy
 
+  quench-adventureworks:
+    image: schemasmithyfree/schemaquench:latest
+    environment:
+      - QuenchSettings_Target__Server=demoserver
+      - QuenchSettings_Target__User=${MSSQL_SA_USERNAME}
+      - QuenchSettings_Target__Password=${MSSQL_SA_PASSWORD}
+      - QuenchSettings_SchemaPackagePath=/metadata
+      - QuenchSettings_ScriptTokens__ProductDb=AdventureWorks
+    volumes:
+      - ./AdventureWorks:/metadata
+    depends_on:
+      demoserver:
+        condition: service_healthy
+
   demoserver:
     build:
       context: ./demoserver
@@ -39,4 +53,6 @@ services:
       demoserver:
         condition: service_healthy
       quench-northwind:
+        condition: service_completed_successfully
+      quench-adventureworks:
         condition: service_completed_successfully

@@ -1,5 +1,5 @@
 {
-  "Name": "",
+  "Name": "AdventureWorks",
   "ValidationScript": "SELECT CASE WHEN EXISTS(SELECT * FROM master.sys.databases WHERE [Name] = '{{AdventureWorksDb}}'",
   "TemplateOrder": [
     "AdventureWorks"
