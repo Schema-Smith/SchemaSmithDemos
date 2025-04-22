@@ -7,29 +7,20 @@
       "Name": "[CurrencyCode]",
       "DataType": "NCHAR(3)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "The ISO code for the Currency."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Currency name."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,10 +33,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[PK_Currency_CurrencyCode]",
@@ -56,13 +44,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CurrencyCode]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[CurrencyCode]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Lookup table containing standard ISO currencies."
+    "ProductName": "AdventureWorks"
   }
 }

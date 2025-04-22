@@ -7,84 +7,57 @@
       "Name": "[AddressID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Address records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[AddressLine1]",
       "DataType": "NVARCHAR(60)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "First street address line."
-      }
+      "Persisted": false
     },
     {
       "Name": "[AddressLine2]",
       "DataType": "NVARCHAR(60)",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Second street address line."
-      }
+      "Persisted": false
     },
     {
       "Name": "[City]",
       "DataType": "NVARCHAR(30)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Name of the city."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[PostalCode]",
       "DataType": "NVARCHAR(15)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Postal code for the street address."
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SpatialLocation]",
       "DataType": "GEOGRAPHY",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Latitude and longitude of this address."
-      }
+      "Persisted": false
     },
     {
       "Name": "[StateProvinceID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Unique identification number for the state or province. Foreign key to StateProvince table."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -97,10 +70,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support replication samples."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode]",
@@ -111,10 +81,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AddressLine1],[AddressLine2],[City],[StateProvinceID],[PostalCode]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[AddressLine1],[AddressLine2],[City],[StateProvinceID],[PostalCode]"
     },
     {
       "Name": "[IX_Address_StateProvinceID]",
@@ -125,10 +92,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[StateProvinceID]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[StateProvinceID]"
     },
     {
       "Name": "[PK_Address_AddressID]",
@@ -139,27 +103,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AddressID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_Address_StateProvince_StateProvinceID]",
-      "Columns": "[StateProvinceID]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[StateProvince]",
-      "RelatedColumns": "[StateProvinceID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing StateProvince.StateProvinceID."
-      }
+      "IndexColumns": "[AddressID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Street address information for customers, employees, and vendors."
+    "ProductName": "AdventureWorks"
   }
 }

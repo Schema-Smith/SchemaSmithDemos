@@ -1,7 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE OR ALTER PROCEDURE [HumanResources].[uspUpdateEmployeeHireInfo]
+CREATE OR ALTER   PROCEDURE [HumanResources].[uspUpdateEmployeeHireInfo]
     @BusinessEntityID [int], 
     @JobTitle [nvarchar](50), 
     @HireDate [datetime], 
@@ -11,6 +11,7 @@ CREATE OR ALTER PROCEDURE [HumanResources].[uspUpdateEmployeeHireInfo]
     @CurrentFlag [dbo].[Flag] 
 WITH EXECUTE AS CALLER
 AS
+
 
 BEGIN
     SET NOCOUNT ON;
@@ -44,6 +45,7 @@ BEGIN
         EXECUTE [dbo].[uspLogError];
     END CATCH;
 END;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'HumanResources', N'PROCEDURE',N'uspUpdateEmployeeHireInfo', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Updates the Employee table and inserts a new row in the EmployeePayHistory table with the values specified in the input parameters.' , @level0type=N'SCHEMA',@level0name=N'HumanResources', @level1type=N'PROCEDURE',@level1name=N'uspUpdateEmployeeHireInfo'

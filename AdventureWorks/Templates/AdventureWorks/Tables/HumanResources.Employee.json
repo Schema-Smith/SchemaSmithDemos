@@ -7,158 +7,104 @@
       "Name": "[BirthDate]",
       "DataType": "DATE",
       "Nullable": false,
-      "CheckExpression": "[BirthDate]>='1930-01-01' AND [BirthDate]<=dateadd(year,(-18),getdate())",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date of birth."
-      }
+      "Persisted": false
     },
     {
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Employee records.  Foreign key to BusinessEntity.BusinessEntityID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[CurrentFlag]",
       "DataType": "FLAG",
       "Nullable": false,
       "Default": "1",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "0 = Inactive, 1 = Active"
-      }
+      "Persisted": false
     },
     {
       "Name": "[Gender]",
       "DataType": "NCHAR(1)",
       "Nullable": false,
-      "CheckExpression": "upper([Gender])='F' OR upper([Gender])='M'",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "M = Male, F = Female"
-      }
+      "Persisted": false
     },
     {
       "Name": "[HireDate]",
       "DataType": "DATE",
       "Nullable": false,
-      "CheckExpression": "[HireDate]>='1996-07-01' AND [HireDate]<=dateadd(day,(1),getdate())",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Employee hired on this date."
-      }
+      "Persisted": false
     },
     {
       "Name": "[JobTitle]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Work title such as Buyer or Sales Representative."
-      }
+      "Persisted": false
     },
     {
       "Name": "[LoginID]",
       "DataType": "NVARCHAR(256)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Network login."
-      }
+      "Persisted": false
     },
     {
       "Name": "[MaritalStatus]",
       "DataType": "NCHAR(1)",
       "Nullable": false,
-      "CheckExpression": "upper([MaritalStatus])='S' OR upper([MaritalStatus])='M'",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "M = Married, S = Single"
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[NationalIDNumber]",
       "DataType": "NVARCHAR(15)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Unique national identification number such as a social security number."
-      }
+      "Persisted": false
     },
     {
       "Name": "[OrganizationLevel]",
       "DataType": "SMALLINT",
       "Nullable": true,
       "ComputedExpression": "[OrganizationNode].[GetLevel]()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "The depth of the employee in the corporate hierarchy."
-      }
+      "Persisted": false
     },
     {
       "Name": "[OrganizationNode]",
       "DataType": "HIERARCHYID",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Where the employee is located in corporate hierarchy."
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SalariedFlag]",
       "DataType": "FLAG",
       "Nullable": false,
       "Default": "1",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Job classification. 0 = Hourly, not exempt from collective bargaining. 1 = Salaried, exempt from collective bargaining."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SickLeaveHours]",
       "DataType": "SMALLINT",
       "Nullable": false,
       "Default": "0",
-      "CheckExpression": "[SickLeaveHours]>=(0) AND [SickLeaveHours]<=(120)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Number of available sick leave hours."
-      }
+      "Persisted": false
     },
     {
       "Name": "[VacationHours]",
       "DataType": "SMALLINT",
       "Nullable": false,
       "Default": "0",
-      "CheckExpression": "[VacationHours]>=(-40) AND [VacationHours]<=(240)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Number of available vacation hours."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -171,10 +117,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[LoginID]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[LoginID]"
     },
     {
       "Name": "[AK_Employee_NationalIDNumber]",
@@ -185,10 +128,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[NationalIDNumber]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[NationalIDNumber]"
     },
     {
       "Name": "[AK_Employee_rowguid]",
@@ -199,10 +139,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support replication samples."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[IX_Employee_OrganizationLevel_OrganizationNode]",
@@ -213,10 +150,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[OrganizationLevel],[OrganizationNode]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[OrganizationLevel],[OrganizationNode]"
     },
     {
       "Name": "[IX_Employee_OrganizationNode]",
@@ -227,10 +161,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[OrganizationNode]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[OrganizationNode]"
     },
     {
       "Name": "[PK_Employee_BusinessEntityID]",
@@ -241,27 +172,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_Employee_Person_BusinessEntityID]",
-      "Columns": "[BusinessEntityID]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[Person]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
-      }
+      "IndexColumns": "[BusinessEntityID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Employee information such as salary, department, and title."
+    "ProductName": "AdventureWorks"
   }
 }

@@ -8,58 +8,39 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date the time the record was created."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product ordered. Foreign key to Product.ProductID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Quantity]",
       "DataType": "INT",
       "Nullable": false,
       "Default": "1",
-      "CheckExpression": "[Quantity]>=(1)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product quantity ordered."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ShoppingCartID]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shopping cart identification number."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ShoppingCartItemID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for ShoppingCartItem records."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -72,10 +53,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ShoppingCartID],[ProductID]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[ShoppingCartID],[ProductID]"
     },
     {
       "Name": "[PK_ShoppingCartItem_ShoppingCartItemID]",
@@ -86,27 +64,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ShoppingCartItemID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_ShoppingCartItem_Product_ProductID]",
-      "Columns": "[ProductID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[Product]",
-      "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Product.ProductID."
-      }
+      "IndexColumns": "[ShoppingCartItemID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Contains online customer orders until the order is submitted or cancelled."
+    "ProductName": "AdventureWorks"
   }
 }

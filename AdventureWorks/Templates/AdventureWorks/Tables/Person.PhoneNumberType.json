@@ -8,28 +8,19 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Name of the telephone number type"
-      }
+      "Persisted": false
     },
     {
       "Name": "[PhoneNumberTypeID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for telephone number type records."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,13 +33,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[PhoneNumberTypeID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[PhoneNumberTypeID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Type of phone number of a person."
+    "ProductName": "AdventureWorks"
   }
 }

@@ -7,57 +7,39 @@
       "Name": "[CatalogDescription]",
       "DataType": "XML",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Detailed product catalog information in xml format."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Instructions]",
       "DataType": "XML",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Manufacturing instructions in xml format."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product model description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductModelID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for ProductModel records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -70,10 +52,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[AK_ProductModel_rowguid]",
@@ -84,10 +63,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support replication samples."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[PK_ProductModel_ProductModelID]",
@@ -98,25 +74,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductModelID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "XmlIndexes": [
-    {
-      "Name": "PXML_ProductModel_CatalogDescription",
-      "Column": "CatalogDescription",
-      "IsPrimary": true
-    },
-    {
-      "Name": "PXML_ProductModel_Instructions",
-      "Column": "Instructions",
-      "IsPrimary": true
+      "IndexColumns": "[ProductModelID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Product model classification."
+    "ProductName": "AdventureWorks"
   }
 }

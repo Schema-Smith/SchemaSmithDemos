@@ -7,38 +7,26 @@
       "Name": "[DepartmentID]",
       "DataType": "SMALLINT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Department records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[GroupName]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Name of the group to which the department belongs."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Name of the department."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -51,10 +39,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[PK_Department_DepartmentID]",
@@ -65,13 +50,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[DepartmentID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[DepartmentID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Lookup table containing the departments within the Adventure Works Cycles company."
+    "ProductName": "AdventureWorks"
   }
 }

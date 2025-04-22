@@ -7,56 +7,38 @@
       "Name": "[CardNumber]",
       "DataType": "NVARCHAR(25)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Credit card number."
-      }
+      "Persisted": false
     },
     {
       "Name": "[CardType]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Credit card name."
-      }
+      "Persisted": false
     },
     {
       "Name": "[CreditCardID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for CreditCard records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ExpMonth]",
       "DataType": "TINYINT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Credit card expiration month."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ExpYear]",
       "DataType": "SMALLINT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Credit card expiration year."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -69,10 +51,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CardNumber]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[CardNumber]"
     },
     {
       "Name": "[PK_CreditCard_CreditCardID]",
@@ -83,13 +62,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CreditCardID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[CreditCardID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Customer credit card information."
+    "ProductName": "AdventureWorks"
   }
 }

@@ -7,29 +7,20 @@
       "Name": "[CountryRegionCode]",
       "DataType": "NVARCHAR(3)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ISO code for countries and regions. Foreign key to CountryRegion.CountryRegionCode."
-      }
+      "Persisted": false
     },
     {
       "Name": "[CurrencyCode]",
       "DataType": "NCHAR(3)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ISO standard currency code. Foreign key to Currency.CurrencyCode."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,10 +33,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CurrencyCode]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[CurrencyCode]"
     },
     {
       "Name": "[PK_CountryRegionCurrency_CountryRegionCode_CurrencyCode]",
@@ -56,39 +44,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[CountryRegionCode],[CurrencyCode]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_CountryRegionCurrency_CountryRegion_CountryRegionCode]",
-      "Columns": "[CountryRegionCode]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[CountryRegion]",
-      "RelatedColumns": "[CountryRegionCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing CountryRegion.CountryRegionCode."
-      }
-    },
-    {
-      "Name": "[FK_CountryRegionCurrency_Currency_CurrencyCode]",
-      "Columns": "[CurrencyCode]",
-      "RelatedTableSchema": "[Sales]",
-      "RelatedTable": "[Currency]",
-      "RelatedColumns": "[CurrencyCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Currency.CurrencyCode."
-      }
+      "IndexColumns": "[CountryRegionCode],[CurrencyCode]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Cross-reference table mapping ISO currency codes to a country or region."
+    "ProductName": "AdventureWorks"
   }
 }

@@ -8,28 +8,19 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SalesOrderID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SalesReasonID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key. Foreign key to SalesReason.SalesReasonID."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,39 +33,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[SalesOrderID],[SalesReasonID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderID]",
-      "Columns": "[SalesOrderID]",
-      "RelatedTableSchema": "[Sales]",
-      "RelatedTable": "[SalesOrderHeader]",
-      "RelatedColumns": "[SalesOrderID]",
-      "CascadeOnDelete": true,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing SalesOrderHeader.SalesOrderID."
-      }
-    },
-    {
-      "Name": "[FK_SalesOrderHeaderSalesReason_SalesReason_SalesReasonID]",
-      "Columns": "[SalesReasonID]",
-      "RelatedTableSchema": "[Sales]",
-      "RelatedTable": "[SalesReason]",
-      "RelatedColumns": "[SalesReasonID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing SalesReason.SalesReasonID."
-      }
+      "IndexColumns": "[SalesOrderID],[SalesReasonID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Cross-reference table mapping sales orders to sales reason codes."
+    "ProductName": "AdventureWorks"
   }
 }

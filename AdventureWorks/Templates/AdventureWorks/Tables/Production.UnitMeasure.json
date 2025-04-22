@@ -8,28 +8,19 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Unit of measure description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[UnitMeasureCode]",
       "DataType": "NCHAR(3)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,10 +33,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[PK_UnitMeasure_UnitMeasureCode]",
@@ -56,13 +44,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[UnitMeasureCode]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[UnitMeasureCode]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Unit of measure lookup table."
+    "ProductName": "AdventureWorks"
   }
 }

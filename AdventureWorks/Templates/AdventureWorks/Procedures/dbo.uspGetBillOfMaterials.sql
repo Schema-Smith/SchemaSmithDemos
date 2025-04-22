@@ -1,10 +1,11 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE OR ALTER PROCEDURE [dbo].[uspGetBillOfMaterials]
+CREATE OR ALTER   PROCEDURE [dbo].[uspGetBillOfMaterials]
     @StartProductID [int],
     @CheckDate [datetime]
 AS
+
 
 BEGIN
     SET NOCOUNT ON;
@@ -38,6 +39,7 @@ BEGIN
     ORDER BY b.[BOMLevel], b.[ProductAssemblyID], b.[ComponentID]
     OPTION (MAXRECURSION 25) 
 END;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'PROCEDURE',N'uspGetBillOfMaterials', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Stored procedure using a recursive query to return a multi-level bill of material for the specified ProductID.' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'PROCEDURE',@level1name=N'uspGetBillOfMaterials'

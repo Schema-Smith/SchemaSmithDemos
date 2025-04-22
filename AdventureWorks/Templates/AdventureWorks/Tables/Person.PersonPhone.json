@@ -7,38 +7,26 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Business entity identification number. Foreign key to Person.BusinessEntityID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[PhoneNumber]",
       "DataType": "PHONE",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Telephone number identification number."
-      }
+      "Persisted": false
     },
     {
       "Name": "[PhoneNumberTypeID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Kind of phone number. Foreign key to PhoneNumberType.PhoneNumberTypeID."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -51,10 +39,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[PhoneNumber]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[PhoneNumber]"
     },
     {
       "Name": "[PK_PersonPhone_BusinessEntityID_PhoneNumber_PhoneNumberTypeID]",
@@ -65,39 +50,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[PhoneNumber],[PhoneNumberTypeID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_PersonPhone_Person_BusinessEntityID]",
-      "Columns": "[BusinessEntityID]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[Person]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
-      }
-    },
-    {
-      "Name": "[FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID]",
-      "Columns": "[PhoneNumberTypeID]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[PhoneNumberType]",
-      "RelatedColumns": "[PhoneNumberTypeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing PhoneNumberType.PhoneNumberTypeID."
-      }
+      "IndexColumns": "[BusinessEntityID],[PhoneNumber],[PhoneNumberTypeID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Telephone number and type of a person."
+    "ProductName": "AdventureWorks"
   }
 }

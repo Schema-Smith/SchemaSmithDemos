@@ -7,38 +7,26 @@
       "Name": "[CultureID]",
       "DataType": "NCHAR(6)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Culture identification number. Foreign key to Culture.CultureID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductDescriptionID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key. Foreign key to ProductDescription.ProductDescriptionID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductModelID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key. Foreign key to ProductModel.ProductModelID."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -51,51 +39,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductModelID],[ProductDescriptionID],[CultureID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_ProductModelProductDescriptionCulture_Culture_CultureID]",
-      "Columns": "[CultureID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[Culture]",
-      "RelatedColumns": "[CultureID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Culture.CultureID."
-      }
-    },
-    {
-      "Name": "[FK_ProductModelProductDescriptionCulture_ProductDescription_ProductDescriptionID]",
-      "Columns": "[ProductDescriptionID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[ProductDescription]",
-      "RelatedColumns": "[ProductDescriptionID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing ProductDescription.ProductDescriptionID."
-      }
-    },
-    {
-      "Name": "[FK_ProductModelProductDescriptionCulture_ProductModel_ProductModelID]",
-      "Columns": "[ProductModelID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[ProductModel]",
-      "RelatedColumns": "[ProductModelID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing ProductModel.ProductModelID."
-      }
+      "IndexColumns": "[ProductModelID],[ProductDescriptionID],[CultureID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Cross-reference table mapping product descriptions and the language the description is written in."
+    "ProductName": "AdventureWorks"
   }
 }

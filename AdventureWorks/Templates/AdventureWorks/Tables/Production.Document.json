@@ -8,132 +8,89 @@
       "DataType": "INT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Engineering change approval number."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Document]",
       "DataType": "VARBINARY(MAX)",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Complete document."
-      }
+      "Persisted": false
     },
     {
       "Name": "[DocumentLevel]",
       "DataType": "SMALLINT",
       "Nullable": true,
       "ComputedExpression": "[DocumentNode].[GetLevel]()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Depth in the document hierarchy."
-      }
+      "Persisted": false
     },
     {
       "Name": "[DocumentNode]",
       "DataType": "HIERARCHYID",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Document records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[DocumentSummary]",
       "DataType": "NVARCHAR(MAX)",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Document abstract."
-      }
+      "Persisted": false
     },
     {
       "Name": "[FileExtension]",
       "DataType": "NVARCHAR(8)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "File extension indicating the document type. For example, .doc or .txt."
-      }
+      "Persisted": false
     },
     {
       "Name": "[FileName]",
       "DataType": "NVARCHAR(400)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "File name of the document"
-      }
+      "Persisted": false
     },
     {
       "Name": "[FolderFlag]",
       "DataType": "BIT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "0 = This is a folder, 1 = This is a document."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Owner]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Employee who controls the document.  Foreign key to Employee.BusinessEntityID"
-      }
+      "Persisted": false
     },
     {
       "Name": "[Revision]",
       "DataType": "NCHAR(5)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Revision number of the document. "
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Required for FileStream."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Status]",
       "DataType": "TINYINT",
       "Nullable": false,
-      "CheckExpression": "[Status]>=(1) AND [Status]<=(3)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "1 = Pending approval, 2 = Approved, 3 = Obsolete"
-      }
+      "Persisted": false
     },
     {
       "Name": "[Title]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Title of the document."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -146,10 +103,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[DocumentLevel],[DocumentNode]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[DocumentLevel],[DocumentNode]"
     },
     {
       "Name": "[AK_Document_rowguid]",
@@ -160,10 +114,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support FileStream."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[IX_Document_FileName_Revision]",
@@ -174,10 +125,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[FileName],[Revision]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[FileName],[Revision]"
     },
     {
       "Name": "[PK_Document_DocumentNode]",
@@ -188,10 +136,7 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[DocumentNode]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[DocumentNode]"
     },
     {
       "Name": "[UQ__Document__F73921F723A3AD32]",
@@ -205,27 +150,7 @@
       "IndexColumns": "[rowguid]"
     }
   ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_Document_Employee_Owner]",
-      "Columns": "[Owner]",
-      "RelatedTableSchema": "[HumanResources]",
-      "RelatedTable": "[Employee]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Employee.BusinessEntityID."
-      }
-    }
-  ],
-  "FullTextIndex": {
-    "FullTextCatalog": "[AW2016FullTextCatalog]",
-    "KeyIndex": "[PK_Document_DocumentNode]",
-    "ChangeTracking": "AUTO",
-    "Columns": "[Document] TYPE COLUMN [FileExtension],[DocumentSummary]"
-  },
   "ExtendedProperties": {
-    "MS_Description": "Product maintenance documents."
+    "ProductName": "AdventureWorks"
   }
 }

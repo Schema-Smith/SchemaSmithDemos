@@ -7,76 +7,51 @@
       "Name": "[Comments]",
       "DataType": "NVARCHAR(3850)",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Reviewer's comments"
-      }
+      "Persisted": false
     },
     {
       "Name": "[EmailAddress]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Reviewer's e-mail address."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductReviewID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for ProductReview records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Rating]",
       "DataType": "INT",
       "Nullable": false,
-      "CheckExpression": "[Rating]>=(1) AND [Rating]<=(5)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product rating given by the reviewer. Scale is 1 to 5 with 5 as the highest rating."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ReviewDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date review was submitted."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ReviewerName]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Name of the reviewer."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -90,10 +65,7 @@
       "ColumnStore": false,
       "FillFactor": 0,
       "IndexColumns": "[ProductID],[ReviewerName]",
-      "IncludeColumns": "[Comments]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IncludeColumns": "[Comments]"
     },
     {
       "Name": "[PK_ProductReview_ProductReviewID]",
@@ -104,33 +76,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductReviewID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[ProductReviewID]"
     }
   ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_ProductReview_Product_ProductID]",
-      "Columns": "[ProductID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[Product]",
-      "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Product.ProductID."
-      }
-    }
-  ],
-  "FullTextIndex": {
-    "FullTextCatalog": "[AW2016FullTextCatalog]",
-    "KeyIndex": "[PK_ProductReview_ProductReviewID]",
-    "ChangeTracking": "AUTO",
-    "Columns": "[Comments]"
-  },
   "ExtendedProperties": {
-    "MS_Description": "Customer reviews of products they have purchased."
+    "ProductName": "AdventureWorks"
   }
 }

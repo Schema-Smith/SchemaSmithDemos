@@ -7,29 +7,20 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Business entity identification number. Foreign key to Person.BusinessEntityID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[CreditCardID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Credit card identification number. Foreign key to CreditCard.CreditCardID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,39 +33,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[CreditCardID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_PersonCreditCard_CreditCard_CreditCardID]",
-      "Columns": "[CreditCardID]",
-      "RelatedTableSchema": "[Sales]",
-      "RelatedTable": "[CreditCard]",
-      "RelatedColumns": "[CreditCardID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing CreditCard.CreditCardID."
-      }
-    },
-    {
-      "Name": "[FK_PersonCreditCard_Person_BusinessEntityID]",
-      "Columns": "[BusinessEntityID]",
-      "RelatedTableSchema": "[Person]",
-      "RelatedTable": "[Person]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
-      }
+      "IndexColumns": "[BusinessEntityID],[CreditCardID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Cross-reference table mapping people to their credit card information in the CreditCard table. "
+    "ProductName": "AdventureWorks"
   }
 }

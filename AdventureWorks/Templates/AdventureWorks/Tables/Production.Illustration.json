@@ -7,29 +7,20 @@
       "Name": "[Diagram]",
       "DataType": "XML",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Illustrations used in manufacturing instructions. Stored as XML."
-      }
+      "Persisted": false
     },
     {
       "Name": "[IllustrationID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Illustration records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -42,13 +33,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[IllustrationID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[IllustrationID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Bicycle assembly diagrams."
+    "ProductName": "AdventureWorks"
   }
 }

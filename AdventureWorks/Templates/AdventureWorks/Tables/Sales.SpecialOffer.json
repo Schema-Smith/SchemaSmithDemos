@@ -7,107 +7,71 @@
       "Name": "[Category]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Group the discount applies to such as Reseller or Customer."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Description]",
       "DataType": "NVARCHAR(255)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Discount description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[DiscountPct]",
       "DataType": "SMALLMONEY",
       "Nullable": false,
       "Default": "0.00",
-      "CheckExpression": "[DiscountPct]>=(0.00)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Discount precentage."
-      }
+      "Persisted": false
     },
     {
       "Name": "[EndDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Discount end date."
-      }
+      "Persisted": false
     },
     {
       "Name": "[MaxQty]",
       "DataType": "INT",
       "Nullable": true,
-      "CheckExpression": "[MaxQty]>=(0)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Maximum discount percent allowed."
-      }
+      "Persisted": false
     },
     {
       "Name": "[MinQty]",
       "DataType": "INT",
       "Nullable": false,
       "Default": "0",
-      "CheckExpression": "[MinQty]>=(0)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Minimum discount percent allowed."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SpecialOfferID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for SpecialOffer records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[StartDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Discount start date."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Type]",
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Discount type category."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -120,10 +84,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support replication samples."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[PK_SpecialOffer_SpecialOfferID]",
@@ -134,22 +95,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[SpecialOfferID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "CheckConstraints": [
-    {
-      "Name": "[CK_SpecialOffer_EndDate]",
-      "Expression": "[EndDate]>=[StartDate]",
-      "ExtendedProperties": {
-        "MS_Description": "Check constraint [EndDate] >= [StartDate]"
-      }
+      "IndexColumns": "[SpecialOfferID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Sale discounts lookup table."
+    "ProductName": "AdventureWorks"
   }
 }

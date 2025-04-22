@@ -7,47 +7,32 @@
       "Name": "[EndTime]",
       "DataType": "TIME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shift end time."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shift description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ShiftID]",
       "DataType": "TINYINT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for Shift records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[StartTime]",
       "DataType": "TIME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shift start time."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -60,10 +45,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[AK_Shift_StartTime_EndTime]",
@@ -74,10 +56,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[StartTime],[EndTime]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[StartTime],[EndTime]"
     },
     {
       "Name": "[PK_Shift_ShiftID]",
@@ -88,13 +67,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ShiftID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[ShiftID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Work shift lookup table."
+    "ProductName": "AdventureWorks"
   }
 }

@@ -7,130 +7,87 @@
       "Name": "[EmployeeID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Employee who created the purchase order. Foreign key to Employee.BusinessEntityID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Freight]",
       "DataType": "MONEY",
       "Nullable": false,
       "Default": "0.00",
-      "CheckExpression": "[Freight]>=(0.00)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shipping cost."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[OrderDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Purchase order creation date."
-      }
+      "Persisted": false
     },
     {
       "Name": "[PurchaseOrderID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key."
-      }
+      "Persisted": false
     },
     {
       "Name": "[RevisionNumber]",
       "DataType": "TINYINT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Incremental number to track changes to the purchase order over time."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ShipDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Estimated shipment date from the vendor."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ShipMethodID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Shipping method. Foreign key to ShipMethod.ShipMethodID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Status]",
       "DataType": "TINYINT",
       "Nullable": false,
       "Default": "1",
-      "CheckExpression": "[Status]>=(1) AND [Status]<=(4)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Order current status. 1 = Pending; 2 = Approved; 3 = Rejected; 4 = Complete"
-      }
+      "Persisted": false
     },
     {
       "Name": "[SubTotal]",
       "DataType": "MONEY",
       "Nullable": false,
       "Default": "0.00",
-      "CheckExpression": "[SubTotal]>=(0.00)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Purchase order subtotal. Computed as SUM(PurchaseOrderDetail.LineTotal)for the appropriate PurchaseOrderID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[TaxAmt]",
       "DataType": "MONEY",
       "Nullable": false,
       "Default": "0.00",
-      "CheckExpression": "[TaxAmt]>=(0.00)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Tax amount."
-      }
+      "Persisted": false
     },
     {
       "Name": "[TotalDue]",
       "DataType": "MONEY",
       "Nullable": false,
       "ComputedExpression": "isnull(([SubTotal]+[TaxAmt])+[Freight],(0))",
-      "Persisted": true,
-      "ExtendedProperties": {
-        "MS_Description": "Total due to vendor. Computed as Subtotal + TaxAmt + Freight."
-      }
+      "Persisted": true
     },
     {
       "Name": "[VendorID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Vendor with whom the purchase order is placed. Foreign key to Vendor.BusinessEntityID."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -143,10 +100,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[EmployeeID]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[EmployeeID]"
     },
     {
       "Name": "[IX_PurchaseOrderHeader_VendorID]",
@@ -157,10 +111,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[VendorID]",
-      "ExtendedProperties": {
-        "MS_Description": "Nonclustered index."
-      }
+      "IndexColumns": "[VendorID]"
     },
     {
       "Name": "[PK_PurchaseOrderHeader_PurchaseOrderID]",
@@ -171,60 +122,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[PurchaseOrderID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_PurchaseOrderHeader_Employee_EmployeeID]",
-      "Columns": "[EmployeeID]",
-      "RelatedTableSchema": "[HumanResources]",
-      "RelatedTable": "[Employee]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
-      }
-    },
-    {
-      "Name": "[FK_PurchaseOrderHeader_ShipMethod_ShipMethodID]",
-      "Columns": "[ShipMethodID]",
-      "RelatedTableSchema": "[Purchasing]",
-      "RelatedTable": "[ShipMethod]",
-      "RelatedColumns": "[ShipMethodID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing ShipMethod.ShipMethodID."
-      }
-    },
-    {
-      "Name": "[FK_PurchaseOrderHeader_Vendor_VendorID]",
-      "Columns": "[VendorID]",
-      "RelatedTableSchema": "[Purchasing]",
-      "RelatedTable": "[Vendor]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Vendor.VendorID."
-      }
-    }
-  ],
-  "CheckConstraints": [
-    {
-      "Name": "[CK_PurchaseOrderHeader_ShipDate]",
-      "Expression": "[ShipDate]>=[OrderDate] OR [ShipDate] IS NULL",
-      "ExtendedProperties": {
-        "MS_Description": "Check constraint [ShipDate] >= [OrderDate] OR [ShipDate] IS NULL"
-      }
+      "IndexColumns": "[PurchaseOrderID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "General purchase order information. See PurchaseOrderDetail."
+    "ProductName": "AdventureWorks"
   }
 }

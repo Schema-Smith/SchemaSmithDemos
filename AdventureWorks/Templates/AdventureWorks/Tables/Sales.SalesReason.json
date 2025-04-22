@@ -8,37 +8,25 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Sales reason description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ReasonType]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Category the sales reason belongs to."
-      }
+      "Persisted": false
     },
     {
       "Name": "[SalesReasonID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for SalesReason records."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -51,13 +39,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[SalesReasonID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
+      "IndexColumns": "[SalesReasonID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Lookup table of customer purchase reasons."
+    "ProductName": "AdventureWorks"
   }
 }

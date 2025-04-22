@@ -7,49 +7,32 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Employee identification number. Foreign key to Employee.BusinessEntityID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[PayFrequency]",
       "DataType": "TINYINT",
       "Nullable": false,
-      "CheckExpression": "[PayFrequency]=(2) OR [PayFrequency]=(1)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "1 = Salary received monthly, 2 = Salary received biweekly"
-      }
+      "Persisted": false
     },
     {
       "Name": "[Rate]",
       "DataType": "MONEY",
       "Nullable": false,
-      "CheckExpression": "[Rate]>=(6.50) AND [Rate]<=(200.00)",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Salary hourly rate."
-      }
+      "Persisted": false
     },
     {
       "Name": "[RateChangeDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date the change in pay is effective"
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -62,27 +45,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[RateChangeDate]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_EmployeePayHistory_Employee_BusinessEntityID]",
-      "Columns": "[BusinessEntityID]",
-      "RelatedTableSchema": "[HumanResources]",
-      "RelatedTable": "[Employee]",
-      "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
-      }
+      "IndexColumns": "[BusinessEntityID],[RateChangeDate]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Employee pay history."
+    "ProductName": "AdventureWorks"
   }
 }

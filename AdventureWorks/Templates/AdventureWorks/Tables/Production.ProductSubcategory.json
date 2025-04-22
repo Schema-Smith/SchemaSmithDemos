@@ -8,47 +8,32 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Date and time the record was last updated."
-      }
+      "Persisted": false
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Subcategory description."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductCategoryID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Product category identification number. Foreign key to ProductCategory.ProductCategoryID."
-      }
+      "Persisted": false
     },
     {
       "Name": "[ProductSubcategoryID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "Primary key for ProductSubcategory records."
-      }
+      "Persisted": false
     },
     {
       "Name": "[rowguid]",
       "DataType": "UNIQUEIDENTIFIER",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false,
-      "ExtendedProperties": {
-        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-      }
+      "Persisted": false
     }
   ],
   "Indexes": [
@@ -61,10 +46,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index."
-      }
+      "IndexColumns": "[Name]"
     },
     {
       "Name": "[AK_ProductSubcategory_rowguid]",
@@ -75,10 +57,7 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]",
-      "ExtendedProperties": {
-        "MS_Description": "Unique nonclustered index. Used to support replication samples."
-      }
+      "IndexColumns": "[rowguid]"
     },
     {
       "Name": "[PK_ProductSubcategory_ProductSubcategoryID]",
@@ -89,27 +68,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductSubcategoryID]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
-      }
-    }
-  ],
-  "ForeignKeys": [
-    {
-      "Name": "[FK_ProductSubcategory_ProductCategory_ProductCategoryID]",
-      "Columns": "[ProductCategoryID]",
-      "RelatedTableSchema": "[Production]",
-      "RelatedTable": "[ProductCategory]",
-      "RelatedColumns": "[ProductCategoryID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
-      "ExtendedProperties": {
-        "MS_Description": "Foreign key constraint referencing ProductCategory.ProductCategoryID."
-      }
+      "IndexColumns": "[ProductSubcategoryID]"
     }
   ],
   "ExtendedProperties": {
-    "MS_Description": "Product subcategories. See ProductCategory table."
+    "ProductName": "AdventureWorks"
   }
 }
