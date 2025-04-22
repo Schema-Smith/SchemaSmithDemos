@@ -1,3 +1,8 @@
+/*
+Tongs generated this as a DDL trigger but it would have been applied last in the objects missing the point of this trigger.  
+Moving it to a before migration script maintains the intention, that this trigger captures changes.
+*/
+
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
