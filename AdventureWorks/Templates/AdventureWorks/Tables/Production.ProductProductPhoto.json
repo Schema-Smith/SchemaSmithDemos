@@ -8,26 +8,38 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Primary]",
       "DataType": "FLAG",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "0 = Photo is not the principal image. 1 = Photo is the principal image."
+      }
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
+      }
     },
     {
       "Name": "[ProductPhotoID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product photo identification number. Foreign key to ProductPhoto.ProductPhotoID."
+      }
     }
   ],
   "Indexes": [
@@ -40,7 +52,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductID],[ProductPhotoID]"
+      "IndexColumns": "[ProductID],[ProductPhotoID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Nonclustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -51,7 +66,10 @@
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Product.ProductID."
+      }
     },
     {
       "Name": "[FK_ProductProductPhoto_ProductPhoto_ProductPhotoID]",
@@ -60,9 +78,13 @@
       "RelatedTable": "[ProductPhoto]",
       "RelatedColumns": "[ProductPhotoID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing ProductPhoto.ProductPhotoID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Cross-reference table mapping products and product photos."
   }
 }

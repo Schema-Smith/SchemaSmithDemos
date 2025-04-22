@@ -7,26 +7,38 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Employee identification number if applicant was hired. Foreign key to Employee.BusinessEntityID."
+      }
     },
     {
       "Name": "[JobCandidateID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for JobCandidate records."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Resume]",
-      "DataType": "XML",
+      "DataType": "XML([HumanResources].[HRResumeSchemaCollection])",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Résumé in XML format."
+      }
     }
   ],
   "Indexes": [
@@ -39,7 +51,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID]"
+      "IndexColumns": "[BusinessEntityID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_JobCandidate_JobCandidateID]",
@@ -50,7 +65,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[JobCandidateID]"
+      "IndexColumns": "[JobCandidateID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -61,9 +79,19 @@
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
+      }
     }
   ],
   "FullTextIndex": {
+    "FullTextCatalog": "[AW2016FullTextCatalog]",
+    "KeyIndex": "[PK_JobCandidate_JobCandidateID]",
+    "ChangeTracking": "AUTO",
+    "Columns": "[Resume]"
+  },
+  "ExtendedProperties": {
+    "MS_Description": "Résumés submitted to Human Resources by job applicants."
   }
 }

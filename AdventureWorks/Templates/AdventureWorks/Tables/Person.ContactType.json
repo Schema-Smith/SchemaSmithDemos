@@ -7,20 +7,29 @@
       "Name": "[ContactTypeID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ContactType records."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Contact type description."
+      }
     }
   ],
   "Indexes": [
@@ -33,7 +42,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[PK_ContactType_ContactTypeID]",
@@ -44,9 +56,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ContactTypeID]"
+      "IndexColumns": "[ContactTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Lookup table containing the types of business entity contacts."
   }
 }

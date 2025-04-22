@@ -1,4 +1,4 @@
-{
+EXEC SchemaSmith.TableQuench @ProductName = 'AdventureWorks', @TableDefinitions = '{
   "Schema": "[dbo]",
   "Name": "[DatabaseLog]",
   "CompressionType": "NONE",
@@ -95,4 +95,4 @@
   "ExtendedProperties": {
     "MS_Description": "Audit table tracking all DDL changes made to the AdventureWorks database. Data is captured by the database trigger ddlDatabaseTriggerLog."
   }
-}
+}', @DropUnknownIndexes = 0, @DropTablesRemovedFromProduct = 0

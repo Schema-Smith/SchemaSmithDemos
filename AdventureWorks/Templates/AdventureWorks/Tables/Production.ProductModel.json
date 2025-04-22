@@ -5,41 +5,59 @@
   "Columns": [
     {
       "Name": "[CatalogDescription]",
-      "DataType": "XML",
+      "DataType": "XML([Production].[ProductDescriptionSchemaCollection])",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Detailed product catalog information in xml format."
+      }
     },
     {
       "Name": "[Instructions]",
-      "DataType": "XML",
+      "DataType": "XML([Production].[ManuInstructionsSchemaCollection])",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Manufacturing instructions in xml format."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product model description."
+      }
     },
     {
       "Name": "[ProductModelID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ProductModel records."
+      }
     },
     {
       "Name": "[rowguid]",
-      "DataType": "UNIQUEIDENTIFIER",
+      "DataType": "UNIQUEIDENTIFIER ROWGUIDCOL",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -52,7 +70,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_ProductModel_rowguid]",
@@ -63,7 +84,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_ProductModel_ProductModelID]",
@@ -74,29 +98,25 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductModelID]"
-    },
-    {
-      "Name": "[PXML_ProductModel_CatalogDescription]",
-      "PrimaryKey": false,
-      "Unique": false,
-      "UniqueConstraint": false,
-      "Clustered": false,
-      "ColumnStore": false,
-      "FillFactor": 0,
-      "IndexColumns": "[CatalogDescription]"
-    },
-    {
-      "Name": "[PXML_ProductModel_Instructions]",
-      "PrimaryKey": false,
-      "Unique": false,
-      "UniqueConstraint": false,
-      "Clustered": false,
-      "ColumnStore": false,
-      "FillFactor": 0,
-      "IndexColumns": "[Instructions]"
+      "IndexColumns": "[ProductModelID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
-  "FullTextIndex": {
+  "XmlIndexes": [
+    {
+      "Name": "PXML_ProductModel_CatalogDescription",
+      "Column": "CatalogDescription",
+      "IsPrimary": true
+    },
+    {
+      "Name": "PXML_ProductModel_Instructions",
+      "Column": "Instructions",
+      "IsPrimary": true
+    }
+  ],
+  "ExtendedProperties": {
+    "MS_Description": "Product model classification."
   }
 }

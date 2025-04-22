@@ -7,20 +7,29 @@
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Business entity identification number. Foreign key to Person.BusinessEntityID."
+      }
     },
     {
       "Name": "[CreditCardID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Credit card identification number. Foreign key to CreditCard.CreditCardID."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     }
   ],
   "Indexes": [
@@ -33,7 +42,10 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[CreditCardID]"
+      "IndexColumns": "[BusinessEntityID],[CreditCardID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ForeignKeys": [
@@ -44,7 +56,10 @@
       "RelatedTable": "[CreditCard]",
       "RelatedColumns": "[CreditCardID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing CreditCard.CreditCardID."
+      }
     },
     {
       "Name": "[FK_PersonCreditCard_Person_BusinessEntityID]",
@@ -53,9 +68,13 @@
       "RelatedTable": "[Person]",
       "RelatedColumns": "[BusinessEntityID]",
       "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "Cross-reference table mapping people to their credit card information in the CreditCard table. "
   }
 }

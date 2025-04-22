@@ -8,26 +8,38 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Category description."
+      }
     },
     {
       "Name": "[ProductCategoryID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ProductCategory records."
+      }
     },
     {
       "Name": "[rowguid]",
-      "DataType": "UNIQUEIDENTIFIER",
+      "DataType": "UNIQUEIDENTIFIER ROWGUIDCOL",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -40,7 +52,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[AK_ProductCategory_rowguid]",
@@ -51,7 +66,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[PK_ProductCategory_ProductCategoryID]",
@@ -62,9 +80,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductCategoryID]"
+      "IndexColumns": "[ProductCategoryID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
-  "FullTextIndex": {
+  "ExtendedProperties": {
+    "MS_Description": "High-level product categorization."
   }
 }

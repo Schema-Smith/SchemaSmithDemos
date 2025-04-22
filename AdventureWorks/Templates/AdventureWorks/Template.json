@@ -1,5 +1,5 @@
 {
   "Name": "AdventureWorks",
-  "DatabaseIdentificationScript": "SELECT [name] FROM master.dbo.sysdatabases WHERE [name] = '{{ProductDb}}'",
-  "VersionStampScript": ""
+  "DatabaseIdentificationScript": "SELECT [Name] FROM master.sys.databases WHERE [Name] = '{{AdventureWorksDb}}'",
+  "UpdateFillFactor": true
 }
