@@ -102,32 +102,6 @@
       "ExtendedProperties": {
         "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
       }
-    },
-    {
-      "Name": "[PXML_ProductModel_CatalogDescription]",
-      "PrimaryKey": false,
-      "Unique": false,
-      "UniqueConstraint": false,
-      "Clustered": false,
-      "ColumnStore": false,
-      "FillFactor": 0,
-      "IndexColumns": "[CatalogDescription]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary XML index."
-      }
-    },
-    {
-      "Name": "[PXML_ProductModel_Instructions]",
-      "PrimaryKey": false,
-      "Unique": false,
-      "UniqueConstraint": false,
-      "Clustered": false,
-      "ColumnStore": false,
-      "FillFactor": 0,
-      "IndexColumns": "[Instructions]",
-      "ExtendedProperties": {
-        "MS_Description": "Primary XML index."
-      }
     }
   ],
   "XmlIndexes": [
