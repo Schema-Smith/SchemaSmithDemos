@@ -1,7 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE OR ALTER   PROCEDURE [dbo].[uspSearchCandidateResumes]
+CREATE OR ALTER PROCEDURE [dbo].[uspSearchCandidateResumes]
     @searchString [nvarchar](1000),   
     @useInflectional [bit]=0,
     @useThesaurus [bit]=0,
@@ -10,7 +10,6 @@ CREATE OR ALTER   PROCEDURE [dbo].[uspSearchCandidateResumes]
 
 WITH EXECUTE AS CALLER
 AS
-
 
 BEGIN
     SET NOCOUNT ON;
@@ -56,5 +55,4 @@ BEGIN
             END
 
 END;
-
 GO

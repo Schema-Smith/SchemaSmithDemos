@@ -7,46 +7,69 @@
       "Name": "[Bin]",
       "DataType": "TINYINT",
       "Nullable": false,
-      "Persisted": false
+      "CheckExpression": "[Bin]>=(0) AND [Bin]<=(100)",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Storage container on a shelf in an inventory location."
+      }
     },
     {
       "Name": "[LocationID]",
       "DataType": "SMALLINT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Inventory location identification number. Foreign key to Location.LocationID. "
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
+      }
     },
     {
       "Name": "[Quantity]",
       "DataType": "SMALLINT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Quantity of products in the inventory location."
+      }
     },
     {
       "Name": "[rowguid]",
-      "DataType": "UNIQUEIDENTIFIER",
+      "DataType": "UNIQUEIDENTIFIER ROWGUIDCOL",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     },
     {
       "Name": "[Shelf]",
       "DataType": "NVARCHAR(10)",
       "Nullable": false,
-      "Persisted": false
+      "CheckExpression": "[Shelf] like '[A-Za-z]' OR [Shelf]='N/A'",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Storage compartment within an inventory location."
+      }
     }
   ],
   "Indexes": [
@@ -59,10 +82,39 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductID],[LocationID]"
+      "IndexColumns": "[ProductID],[LocationID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_ProductInventory_Location_LocationID]",
+      "Columns": "[LocationID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Location]",
+      "RelatedColumns": "[LocationID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Location.LocationID."
+      }
+    },
+    {
+      "Name": "[FK_ProductInventory_Product_ProductID]",
+      "Columns": "[ProductID]",
+      "RelatedTableSchema": "[Production]",
+      "RelatedTable": "[Product]",
+      "RelatedColumns": "[ProductID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Product.ProductID."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Product inventory information."
   }
 }

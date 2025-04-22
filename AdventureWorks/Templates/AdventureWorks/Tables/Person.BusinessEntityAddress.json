@@ -7,33 +7,48 @@
       "Name": "[AddressID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to Address.AddressID."
+      }
     },
     {
       "Name": "[AddressTypeID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to AddressType.AddressTypeID."
+      }
     },
     {
       "Name": "[BusinessEntityID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[rowguid]",
-      "DataType": "UNIQUEIDENTIFIER",
+      "DataType": "UNIQUEIDENTIFIER ROWGUIDCOL",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     }
   ],
   "Indexes": [
@@ -46,7 +61,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[IX_BusinessEntityAddress_AddressID]",
@@ -57,7 +75,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AddressID]"
+      "IndexColumns": "[AddressID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[IX_BusinessEntityAddress_AddressTypeID]",
@@ -68,7 +89,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[AddressTypeID]"
+      "IndexColumns": "[AddressTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_BusinessEntityAddress_BusinessEntityID_AddressID_AddressTypeID]",
@@ -79,10 +103,51 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[BusinessEntityID],[AddressID],[AddressTypeID]"
+      "IndexColumns": "[BusinessEntityID],[AddressID],[AddressTypeID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_BusinessEntityAddress_Address_AddressID]",
+      "Columns": "[AddressID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[Address]",
+      "RelatedColumns": "[AddressID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing Address.AddressID."
+      }
+    },
+    {
+      "Name": "[FK_BusinessEntityAddress_AddressType_AddressTypeID]",
+      "Columns": "[AddressTypeID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[AddressType]",
+      "RelatedColumns": "[AddressTypeID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing AddressType.AddressTypeID."
+      }
+    },
+    {
+      "Name": "[FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID]",
+      "Columns": "[BusinessEntityID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[BusinessEntity]",
+      "RelatedColumns": "[BusinessEntityID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Cross-reference table mapping customers, vendors, and employees to their addresses."
   }
 }

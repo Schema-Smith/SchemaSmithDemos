@@ -7,26 +7,38 @@
       "Name": "[Database Version]",
       "DataType": "NVARCHAR(25)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Version number of the database in 9.yy.mm.dd.00 format."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[SystemInformationID]",
       "DataType": "TINYINT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for AWBuildVersion records."
+      }
     },
     {
       "Name": "[VersionDate]",
       "DataType": "DATETIME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     }
   ],
   "Indexes": [
@@ -39,10 +51,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[SystemInformationID]"
+      "IndexColumns": "[SystemInformationID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Current version number of the AdventureWorks 2016 sample database. "
   }
 }

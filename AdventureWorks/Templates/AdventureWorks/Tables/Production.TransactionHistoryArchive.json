@@ -7,58 +7,86 @@
       "Name": "[ActualCost]",
       "DataType": "MONEY",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product cost."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product identification number. Foreign key to Product.ProductID."
+      }
     },
     {
       "Name": "[Quantity]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Product quantity."
+      }
     },
     {
       "Name": "[ReferenceOrderID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Purchase order, sales order, or work order identification number."
+      }
     },
     {
       "Name": "[ReferenceOrderLineID]",
       "DataType": "INT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Line number associated with the purchase order, sales order, or work order."
+      }
     },
     {
       "Name": "[TransactionDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time of the transaction."
+      }
     },
     {
       "Name": "[TransactionID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for TransactionHistoryArchive records."
+      }
     },
     {
       "Name": "[TransactionType]",
       "DataType": "NCHAR(1)",
       "Nullable": false,
-      "Persisted": false
+      "CheckExpression": "upper([TransactionType])='P' OR upper([TransactionType])='S' OR upper([TransactionType])='W'",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "W = Work Order, S = Sales Order, P = Purchase Order"
+      }
     }
   ],
   "Indexes": [
@@ -71,7 +99,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductID]"
+      "IndexColumns": "[ProductID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[IX_TransactionHistoryArchive_ReferenceOrderID_ReferenceOrderLineID]",
@@ -82,7 +113,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ReferenceOrderID],[ReferenceOrderLineID]"
+      "IndexColumns": "[ReferenceOrderID],[ReferenceOrderLineID]",
+      "ExtendedProperties": {
+        "MS_Description": "Nonclustered index."
+      }
     },
     {
       "Name": "[PK_TransactionHistoryArchive_TransactionID]",
@@ -93,10 +127,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[TransactionID]"
+      "IndexColumns": "[TransactionID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Transactions for previous years."
   }
 }

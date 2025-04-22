@@ -7,56 +7,83 @@
       "Name": "[ErrorLine]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The line number at which the error occurred."
+      }
     },
     {
       "Name": "[ErrorLogID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ErrorLog records."
+      }
     },
     {
       "Name": "[ErrorMessage]",
       "DataType": "NVARCHAR(4000)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The message text of the error that occurred."
+      }
     },
     {
       "Name": "[ErrorNumber]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The error number of the error that occurred."
+      }
     },
     {
       "Name": "[ErrorProcedure]",
       "DataType": "NVARCHAR(126)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The name of the stored procedure or trigger where the error occurred."
+      }
     },
     {
       "Name": "[ErrorSeverity]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The severity of the error that occurred."
+      }
     },
     {
       "Name": "[ErrorState]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The state number of the error that occurred."
+      }
     },
     {
       "Name": "[ErrorTime]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The date and time at which the error occurred."
+      }
     },
     {
       "Name": "[UserName]",
       "DataType": "SYSNAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "The user who executed the batch in which the error occurred."
+      }
     }
   ],
   "Indexes": [
@@ -69,10 +96,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ErrorLogID]"
+      "IndexColumns": "[ErrorLogID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Audit table tracking errors in the the AdventureWorks database that are caught by the CATCH block of a TRY...CATCH construct. Data is inserted by stored procedure dbo.uspLogError when it is executed from inside the CATCH block of a TRY...CATCH construct."
   }
 }

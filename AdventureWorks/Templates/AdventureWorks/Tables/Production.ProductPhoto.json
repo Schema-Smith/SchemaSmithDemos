@@ -7,38 +7,56 @@
       "Name": "[LargePhoto]",
       "DataType": "VARBINARY(MAX)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Large image of the product."
+      }
     },
     {
       "Name": "[LargePhotoFileName]",
       "DataType": "NVARCHAR(50)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Large image file name."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[ProductPhotoID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for ProductPhoto records."
+      }
     },
     {
       "Name": "[ThumbNailPhoto]",
       "DataType": "VARBINARY(MAX)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Small image of the product."
+      }
     },
     {
       "Name": "[ThumbnailPhotoFileName]",
       "DataType": "NVARCHAR(50)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Small image file name."
+      }
     }
   ],
   "Indexes": [
@@ -51,10 +69,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[ProductPhotoID]"
+      "IndexColumns": "[ProductPhotoID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Product images."
   }
 }

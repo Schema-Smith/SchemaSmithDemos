@@ -8,45 +8,67 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Tax rate description."
+      }
     },
     {
       "Name": "[rowguid]",
-      "DataType": "UNIQUEIDENTIFIER",
+      "DataType": "UNIQUEIDENTIFIER ROWGUIDCOL",
       "Nullable": false,
       "Default": "newid()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
+      }
     },
     {
       "Name": "[SalesTaxRateID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for SalesTaxRate records."
+      }
     },
     {
       "Name": "[StateProvinceID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "State, province, or country/region the sales tax applies to."
+      }
     },
     {
       "Name": "[TaxRate]",
       "DataType": "SMALLMONEY",
       "Nullable": false,
       "Default": "0.00",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Tax rate amount."
+      }
     },
     {
       "Name": "[TaxType]",
       "DataType": "TINYINT",
       "Nullable": false,
-      "Persisted": false
+      "CheckExpression": "[TaxType]>=(1) AND [TaxType]<=(3)",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "1 = Tax applied to retail transactions, 2 = Tax applied to wholesale transactions, 3 = Tax applied to all sales (retail and wholesale) transactions."
+      }
     }
   ],
   "Indexes": [
@@ -59,7 +81,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[rowguid]"
+      "IndexColumns": "[rowguid]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index. Used to support replication samples."
+      }
     },
     {
       "Name": "[AK_SalesTaxRate_StateProvinceID_TaxType]",
@@ -70,7 +95,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[StateProvinceID],[TaxType]"
+      "IndexColumns": "[StateProvinceID],[TaxType]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[PK_SalesTaxRate_SalesTaxRateID]",
@@ -81,10 +109,27 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[SalesTaxRateID]"
+      "IndexColumns": "[SalesTaxRateID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
+    }
+  ],
+  "ForeignKeys": [
+    {
+      "Name": "[FK_SalesTaxRate_StateProvince_StateProvinceID]",
+      "Columns": "[StateProvinceID]",
+      "RelatedTableSchema": "[Person]",
+      "RelatedTable": "[StateProvince]",
+      "RelatedColumns": "[StateProvinceID]",
+      "CascadeOnDelete": false,
+      "CascadeOnUpdate": false,
+      "ExtendedProperties": {
+        "MS_Description": "Foreign key constraint referencing StateProvince.StateProvinceID."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Tax rate lookup table."
   }
 }

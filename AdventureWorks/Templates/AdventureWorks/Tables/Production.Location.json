@@ -8,33 +8,50 @@
       "DataType": "DECIMAL(8, 2)",
       "Nullable": false,
       "Default": "0.00",
-      "Persisted": false
+      "CheckExpression": "[Availability]>=(0.00)",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Work capacity (in hours) of the manufacturing location."
+      }
     },
     {
       "Name": "[CostRate]",
       "DataType": "SMALLMONEY",
       "Nullable": false,
       "Default": "0.00",
-      "Persisted": false
+      "CheckExpression": "[CostRate]>=(0.00)",
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Standard hourly cost of the manufacturing location."
+      }
     },
     {
       "Name": "[LocationID]",
       "DataType": "SMALLINT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Primary key for Location records."
+      }
     },
     {
       "Name": "[ModifiedDate]",
       "DataType": "DATETIME",
       "Nullable": false,
       "Default": "getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Date and time the record was last updated."
+      }
     },
     {
       "Name": "[Name]",
       "DataType": "NAME",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "ExtendedProperties": {
+        "MS_Description": "Location description."
+      }
     }
   ],
   "Indexes": [
@@ -47,7 +64,10 @@
       "Clustered": false,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[Name]"
+      "IndexColumns": "[Name]",
+      "ExtendedProperties": {
+        "MS_Description": "Unique nonclustered index."
+      }
     },
     {
       "Name": "[PK_Location_LocationID]",
@@ -58,10 +78,13 @@
       "Clustered": true,
       "ColumnStore": false,
       "FillFactor": 0,
-      "IndexColumns": "[LocationID]"
+      "IndexColumns": "[LocationID]",
+      "ExtendedProperties": {
+        "MS_Description": "Primary key (clustered) constraint Clustered index created by a primary key constraint."
+      }
     }
   ],
   "ExtendedProperties": {
-    "ProductName": "AdventureWorks"
+    "MS_Description": "Product inventory and manufacturing locations."
   }
 }
