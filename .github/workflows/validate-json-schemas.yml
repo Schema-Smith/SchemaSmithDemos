@@ -1,0 +1,41 @@
+name: validate-json-schemas
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-adventureworks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: validate-adventureworks-product
+        id: validate-adventureworks-product
+        uses: GrantBirki/json-yaml-validate@v3.3.0
+        with:
+          comment: "true"
+          use_gitignore: "false"
+          json_schema: "./AdventureWorks/.json-schemas/products.schema"
+          files: "./AdventureWorks/Product.json"
+
+      - name: validate-adventureworks-template
+        id: validate-adventureworks-template
+        uses: GrantBirki/json-yaml-validate@v3.3.0
+        with:
+          comment: "true"
+          use_gitignore: "false"
+          json_schema: "./AdventureWorks/.json-schemas/templates.schema"
+          files: "./AdventureWorks/Templates/AdventureWorks/Template.json"
+
+      - name: validate-adventureworks-tables
+        id: validate-adventureworks-tables
+        uses: GrantBirki/json-yaml-validate@v3.3.0
+        with:
+          comment: "true"
+          use_gitignore: "false"
+          json_schema: "./AdventureWorks/.json-schemas/tables.schema"
+          base_dir: "./AdventureWorks/Templates/AdventureWorks/Tables"
+
