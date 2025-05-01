@@ -19,5 +19,5 @@ jobs:
           comment: "true"
           use_gitignore: "false"
           json_schema: "./AdventureWorks/.json-schemas/products.schema"
-          base_dir: "./AdventureWorks/Product.json"
+          base_dir: "./AdventureWorks"
 
