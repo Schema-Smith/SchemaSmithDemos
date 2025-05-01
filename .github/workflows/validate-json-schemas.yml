@@ -12,12 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: validate-adventureworks
-        id: validate-adventureworks
+      - name: validate-adventureworks-product
+        id: validate-adventureworks-product
         uses: GrantBirki/json-yaml-validate@v3.3.0
         with:
           comment: "true"
           use_gitignore: "false"
           json_schema: "./AdventureWorks/.json-schemas/products.schema"
           files: "./AdventureWorks/Product.json"
+
+      - name: validate-adventureworks-template
+        id: validate-adventureworks-template
+        uses: GrantBirki/json-yaml-validate@v3.3.0
+        with:
+          comment: "true"
+          use_gitignore: "false"
+          json_schema: "./AdventureWorks/.json-schemas/templates.schema"
+          files: "./AdventureWorks/Templates/Template.json"
 
