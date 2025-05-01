@@ -30,3 +30,12 @@ jobs:
           json_schema: "./AdventureWorks/.json-schemas/templates.schema"
           files: "./AdventureWorks/Templates/AdventureWorks/Template.json"
 
+      - name: validate-adventureworks-tables
+        id: validate-adventureworks-tables
+        uses: GrantBirki/json-yaml-validate@v3.3.0
+        with:
+          comment: "true"
+          use_gitignore: "false"
+          json_schema: "./AdventureWorks/.json-schemas/tables.schema"
+          base_dir: "./AdventureWorks/Templates/AdventureWorks/Tables"
+
