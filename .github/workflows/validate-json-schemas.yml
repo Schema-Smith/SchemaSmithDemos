@@ -20,4 +20,5 @@ jobs:
           use_gitignore: "false"
           json_schema: "./AdventureWorks/.json-schemas/products.schema"
           base_dir: "./AdventureWorks"
+          files: "Product.json"
 
