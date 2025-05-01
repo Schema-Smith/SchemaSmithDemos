@@ -28,5 +28,5 @@ jobs:
           comment: "true"
           use_gitignore: "false"
           json_schema: "./AdventureWorks/.json-schemas/templates.schema"
-          files: "./AdventureWorks/Templates/Template.json"
+          files: "./AdventureWorks/Templates/AdventureWorks/Template.json"
 
