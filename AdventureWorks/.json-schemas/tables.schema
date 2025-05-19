@@ -8,7 +8,11 @@
             "type": "string"
         },
         "CompressionType": {
-            "type": "string"
+            "type": "string",
+			"description": "DROPDOWN:MyLookup1",
+			"title": "DROPDOWN:MyLookup1",
+			"default": "DROPDOWN:MyLookup1",
+			"examples": ["DROPDOWN:MyLookup1"]
         },
         "IsTemporal": {
             "type": "boolean"
