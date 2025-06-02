@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
       }
@@ -17,6 +20,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key.  Foreign key to ContactType.ContactTypeID."
       }
@@ -27,6 +33,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -36,6 +45,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to Person.BusinessEntityID."
       }
@@ -46,6 +58,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -116,8 +131,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[BusinessEntity]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID."
       }
@@ -128,8 +143,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[ContactType]",
       "RelatedColumns": "[ContactTypeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ContactType.ContactTypeID."
       }
@@ -140,8 +155,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[Person]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Person.BusinessEntityID."
       }

@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER TRIGGER [Sales].[iduSalesOrderDetail] ON [Sales].[SalesOrderDetail] 
 AFTER INSERT, DELETE, UPDATE AS 
 
@@ -85,6 +86,7 @@ BEGIN
         EXECUTE [dbo].[uspLogError];
     END CATCH;
 END;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Sales', N'TABLE',N'SalesOrderDetail', N'TRIGGER',N'iduSalesOrderDetail'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'AFTER INSERT, DELETE, UPDATE trigger that inserts a row in the TransactionHistory table, updates ModifiedDate in SalesOrderDetail and updates the SalesOrderHeader.SubTotal column.' , @level0type=N'SCHEMA',@level0name=N'Sales', @level1type=N'TABLE',@level1name=N'SalesOrderDetail', @level2type=N'TRIGGER',@level2name=N'iduSalesOrderDetail'

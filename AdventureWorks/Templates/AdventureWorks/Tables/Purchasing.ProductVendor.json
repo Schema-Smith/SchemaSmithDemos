@@ -9,6 +9,9 @@
       "Nullable": false,
       "CheckExpression": "[AverageLeadTime]>=(1)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The average span of time (in days) between placing an order with the vendor and receiving the purchased product."
       }
@@ -18,6 +21,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to Vendor.BusinessEntityID."
       }
@@ -28,6 +34,9 @@
       "Nullable": true,
       "CheckExpression": "[LastReceiptCost]>(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The selling price when last purchased."
       }
@@ -37,6 +46,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the product was last received by the vendor."
       }
@@ -47,6 +59,9 @@
       "Nullable": false,
       "CheckExpression": "[MaxOrderQty]>=(1)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The minimum quantity that should be ordered."
       }
@@ -57,6 +72,9 @@
       "Nullable": false,
       "CheckExpression": "[MinOrderQty]>=(1)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The maximum quantity that should be ordered."
       }
@@ -67,6 +85,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -77,6 +98,9 @@
       "Nullable": true,
       "CheckExpression": "[OnOrderQty]>=(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The quantity currently on order."
       }
@@ -86,6 +110,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to Product.ProductID."
       }
@@ -96,6 +123,9 @@
       "Nullable": false,
       "CheckExpression": "[StandardPrice]>(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The vendor's usual selling price."
       }
@@ -105,6 +135,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The product's unit of measure."
       }
@@ -161,8 +194,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Product.ProductID."
       }
@@ -173,8 +206,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[UnitMeasure]",
       "RelatedColumns": "[UnitMeasureCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing UnitMeasure.UnitMeasureCode."
       }
@@ -185,8 +218,8 @@
       "RelatedTableSchema": "[Purchasing]",
       "RelatedTable": "[Vendor]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Vendor.BusinessEntityID."
       }

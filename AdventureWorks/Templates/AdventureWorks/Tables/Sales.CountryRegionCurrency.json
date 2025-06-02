@@ -8,6 +8,9 @@
       "DataType": "NVARCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ISO code for countries and regions. Foreign key to CountryRegion.CountryRegionCode."
       }
@@ -17,6 +20,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ISO standard currency code. Foreign key to Currency.CurrencyCode."
       }
@@ -27,6 +33,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -69,8 +78,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[CountryRegion]",
       "RelatedColumns": "[CountryRegionCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing CountryRegion.CountryRegionCode."
       }
@@ -81,8 +90,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[Currency]",
       "RelatedColumns": "[CurrencyCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Currency.CurrencyCode."
       }

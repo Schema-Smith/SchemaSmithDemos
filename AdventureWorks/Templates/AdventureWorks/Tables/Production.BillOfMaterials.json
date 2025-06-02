@@ -8,6 +8,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for BillOfMaterials records."
       }
@@ -17,6 +20,9 @@
       "DataType": "SMALLINT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Indicates the depth the component is from its parent (AssemblyID)."
       }
@@ -26,6 +32,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Component identification number. Foreign key to Product.ProductID."
       }
@@ -35,6 +44,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the component stopped being used in the assembly item."
       }
@@ -45,6 +57,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -56,6 +71,9 @@
       "Default": "1.00",
       "CheckExpression": "[PerAssemblyQty]>=(1.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity of the component needed to create the assembly."
       }
@@ -65,6 +83,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Parent product identification number. Foreign key to Product.ProductID."
       }
@@ -75,6 +96,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the component started being used in the assembly item."
       }
@@ -84,6 +108,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Standard code identifying the unit of measure for the quantity."
       }
@@ -140,8 +167,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Product.ComponentID."
       }
@@ -152,8 +179,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Product.ProductAssemblyID."
       }
@@ -164,8 +191,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[UnitMeasure]",
       "RelatedColumns": "[UnitMeasureCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing UnitMeasure.UnitMeasureCode."
       }

@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER TRIGGER [Production].[iWorkOrder] ON [Production].[WorkOrder] 
 AFTER INSERT AS 
 
@@ -43,6 +44,7 @@ BEGIN
         EXECUTE [dbo].[uspLogError];
     END CATCH;
 END;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Production', N'TABLE',N'WorkOrder', N'TRIGGER',N'iWorkOrder'))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'AFTER INSERT trigger that inserts a row in the TransactionHistory table.' , @level0type=N'SCHEMA',@level0name=N'Production', @level1type=N'TABLE',@level1name=N'WorkOrder', @level2type=N'TRIGGER',@level2name=N'iWorkOrder'

@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER VIEW [Sales].[vPersonDemographics] 
 AS 
 
@@ -33,7 +34,8 @@ SELECT
 FROM [Person].[Person] p 
 CROSS APPLY p.[Demographics].nodes(N'declare default element namespace "http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/IndividualSurvey"; 
     /IndividualSurvey') AS [IndividualSurvey](ref) 
-WHERE [Demographics] IS NOT NULL
+WHERE [Demographics] IS NOT NULL;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Sales', N'VIEW',N'vPersonDemographics', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Displays the content from each element in the xml column Demographics for each customer in the Person.Person table.' , @level0type=N'SCHEMA',@level0name=N'Sales', @level1type=N'VIEW',@level1name=N'vPersonDemographics'

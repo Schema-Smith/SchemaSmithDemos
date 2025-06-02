@@ -8,6 +8,9 @@
       "DataType": "MONEY",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Average exchange rate for the day."
       }
@@ -17,6 +20,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the exchange rate was obtained."
       }
@@ -26,6 +32,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for CurrencyRate records."
       }
@@ -35,6 +44,9 @@
       "DataType": "MONEY",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Final exchange rate for the day."
       }
@@ -44,6 +56,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Exchange rate was converted from this currency code."
       }
@@ -54,6 +69,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -63,6 +81,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Exchange rate was converted to this currency code."
       }
@@ -105,8 +126,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[Currency]",
       "RelatedColumns": "[CurrencyCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Currency.FromCurrencyCode."
       }
@@ -117,8 +138,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[Currency]",
       "RelatedColumns": "[CurrencyCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Currency.ToCurrencyCode."
       }

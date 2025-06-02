@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales person identification number. Foreign key to SalesPerson.BusinessEntityID."
       }
@@ -18,6 +21,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -27,6 +33,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales quota date."
       }
@@ -37,6 +46,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -47,6 +59,9 @@
       "Nullable": false,
       "CheckExpression": "[SalesQuota]>(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales quota amount."
       }
@@ -89,8 +104,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesPerson]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesPerson.SalesPersonID."
       }

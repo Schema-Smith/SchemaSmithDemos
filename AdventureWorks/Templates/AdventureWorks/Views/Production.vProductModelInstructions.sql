@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER VIEW [Production].[vProductModelInstructions] 
 AS 
 
@@ -21,7 +22,8 @@ FROM [Production].[ProductModel]
 CROSS APPLY [Instructions].nodes(N'declare default element namespace "http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelManuInstructions"; 
     /root/Location') MfgInstructions(ref)
 CROSS APPLY [MfgInstructions].ref.nodes('declare default element namespace "http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ProductModelManuInstructions"; 
-    step') Steps(ref)
+    step') Steps(ref);
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Production', N'VIEW',N'vProductModelInstructions', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Displays the content from each element in the xml column Instructions for each product in the Production.ProductModel table that has manufacturing instructions.' , @level0type=N'SCHEMA',@level0name=N'Production', @level1type=N'VIEW',@level1name=N'vProductModelInstructions'

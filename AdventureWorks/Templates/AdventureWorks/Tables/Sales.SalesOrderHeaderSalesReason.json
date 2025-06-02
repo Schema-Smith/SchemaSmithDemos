@@ -9,6 +9,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -18,6 +21,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
       }
@@ -27,6 +33,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to SalesReason.SalesReasonID."
       }
@@ -55,8 +64,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesOrderHeader]",
       "RelatedColumns": "[SalesOrderID]",
-      "CascadeOnDelete": true,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "CASCADE",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesOrderHeader.SalesOrderID."
       }
@@ -67,8 +76,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesReason]",
       "RelatedColumns": "[SalesReasonID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesReason.SalesReasonID."
       }

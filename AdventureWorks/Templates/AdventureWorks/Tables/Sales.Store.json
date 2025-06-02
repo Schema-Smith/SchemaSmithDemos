@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to Customer.BusinessEntityID."
       }
@@ -17,6 +20,9 @@
       "DataType": "XML([Sales].[StoreSurveySchemaCollection])",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Demographic informationg about the store such as the number of employees, annual sales and store type."
       }
@@ -27,6 +33,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -36,6 +45,9 @@
       "DataType": "NAME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Name of the store."
       }
@@ -46,6 +58,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -55,6 +70,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ID of the sales person assigned to the customer. Foreign key to SalesPerson.BusinessEntityID."
       }
@@ -106,9 +124,12 @@
   ],
   "XmlIndexes": [
     {
-      "Name": "PXML_Store_Demographics",
-      "Column": "Demographics",
-      "IsPrimary": true
+      "Name": "[PXML_Store_Demographics]",
+      "Column": "[Demographics]",
+      "IsPrimary": true,
+      "ExtendedProperties": {
+        "MS_Description": "Primary XML index."
+      }
     }
   ],
   "ForeignKeys": [
@@ -118,8 +139,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[BusinessEntity]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID"
       }
@@ -130,8 +151,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesPerson]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesPerson.SalesPersonID"
       }

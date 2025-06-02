@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to Address.AddressID."
       }
@@ -17,6 +20,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to AddressType.AddressTypeID."
       }
@@ -26,6 +32,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
       }
@@ -36,6 +45,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -46,6 +58,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -116,8 +131,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[Address]",
       "RelatedColumns": "[AddressID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Address.AddressID."
       }
@@ -128,8 +143,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[AddressType]",
       "RelatedColumns": "[AddressTypeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing AddressType.AddressTypeID."
       }
@@ -140,8 +155,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[BusinessEntity]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID."
       }

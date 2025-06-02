@@ -9,6 +9,9 @@
       "Nullable": true,
       "CheckExpression": "upper([Class])='H' OR upper([Class])='M' OR upper([Class])='L' OR [Class] IS NULL",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "H = High, M = Medium, L = Low"
       }
@@ -18,6 +21,9 @@
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product color."
       }
@@ -28,6 +34,9 @@
       "Nullable": false,
       "CheckExpression": "[DaysToManufacture]>=(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Number of days required to manufacture the product."
       }
@@ -37,6 +46,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the product was discontinued."
       }
@@ -47,6 +59,9 @@
       "Nullable": false,
       "Default": "1",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = Product is not a salable item. 1 = Product is salable."
       }
@@ -57,6 +72,9 @@
       "Nullable": false,
       "CheckExpression": "[ListPrice]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Selling price."
       }
@@ -67,6 +85,9 @@
       "Nullable": false,
       "Default": "1",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = Product is purchased, 1 = Product is manufactured in-house."
       }
@@ -77,6 +98,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -86,6 +110,9 @@
       "DataType": "NAME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Name of the product."
       }
@@ -95,6 +122,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for Product records."
       }
@@ -105,6 +135,9 @@
       "Nullable": true,
       "CheckExpression": "upper([ProductLine])='R' OR upper([ProductLine])='M' OR upper([ProductLine])='T' OR upper([ProductLine])='S' OR [ProductLine] IS NULL",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "R = Road, M = Mountain, T = Touring, S = Standard"
       }
@@ -114,6 +147,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product is a member of this product model. Foreign key to ProductModel.ProductModelID."
       }
@@ -123,6 +159,9 @@
       "DataType": "NVARCHAR(25)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Unique product identification number."
       }
@@ -132,6 +171,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product is a member of this product subcategory. Foreign key to ProductSubCategory.ProductSubCategoryID. "
       }
@@ -142,6 +184,9 @@
       "Nullable": false,
       "CheckExpression": "[ReorderPoint]>(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Inventory level that triggers a purchase order or work order. "
       }
@@ -152,6 +197,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -162,6 +210,9 @@
       "Nullable": false,
       "CheckExpression": "[SafetyStockLevel]>(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Minimum inventory quantity. "
       }
@@ -171,6 +222,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the product was no longer available for sale."
       }
@@ -180,6 +234,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the product was available for sale."
       }
@@ -189,6 +246,9 @@
       "DataType": "NVARCHAR(5)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product size."
       }
@@ -198,6 +258,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Unit of measure for Size column."
       }
@@ -208,6 +271,9 @@
       "Nullable": false,
       "CheckExpression": "[StandardCost]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Standard cost of the product."
       }
@@ -218,6 +284,9 @@
       "Nullable": true,
       "CheckExpression": "upper([Style])='U' OR upper([Style])='M' OR upper([Style])='W' OR [Style] IS NULL",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "W = Womens, M = Mens, U = Universal"
       }
@@ -228,6 +297,9 @@
       "Nullable": true,
       "CheckExpression": "[Weight]>(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product weight."
       }
@@ -237,6 +309,9 @@
       "DataType": "NCHAR(3)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Unit of measure for Weight column."
       }
@@ -307,8 +382,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[ProductModel]",
       "RelatedColumns": "[ProductModelID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ProductModel.ProductModelID."
       }
@@ -319,8 +394,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[ProductSubcategory]",
       "RelatedColumns": "[ProductSubcategoryID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ProductSubcategory.ProductSubcategoryID."
       }
@@ -331,8 +406,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[UnitMeasure]",
       "RelatedColumns": "[UnitMeasureCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing UnitMeasure.UnitMeasureCode."
       }
@@ -343,8 +418,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[UnitMeasure]",
       "RelatedColumns": "[UnitMeasureCode]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing UnitMeasure.UnitMeasureCode."
       }

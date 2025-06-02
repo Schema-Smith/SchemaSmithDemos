@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER VIEW [Production].[vProductModelCatalogDescription] 
 AS 
 
@@ -62,7 +63,8 @@ SELECT
     ,[rowguid] 
     ,[ModifiedDate]
 FROM [Production].[ProductModel] 
-WHERE [CatalogDescription] IS NOT NULL
+WHERE [CatalogDescription] IS NOT NULL;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Production', N'VIEW',N'vProductModelCatalogDescription', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Displays the content from each element in the xml column CatalogDescription for each product in the Production.ProductModel table that has catalog data.' , @level0type=N'SCHEMA',@level0name=N'Production', @level1type=N'VIEW',@level1name=N'vProductModelCatalogDescription'

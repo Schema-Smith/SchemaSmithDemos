@@ -8,6 +8,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the product is expected to be received."
       }
@@ -18,6 +21,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull([OrderQty]*[UnitPrice],(0.00))",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Per product subtotal. Computed as OrderQty * UnitPrice."
       }
@@ -28,6 +34,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -38,6 +47,9 @@
       "Nullable": false,
       "CheckExpression": "[OrderQty]>(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity ordered."
       }
@@ -47,6 +59,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product identification number. Foreign key to Product.ProductID."
       }
@@ -56,6 +71,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. One line number per purchased product."
       }
@@ -65,6 +83,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to PurchaseOrderHeader.PurchaseOrderID."
       }
@@ -75,6 +96,9 @@
       "Nullable": false,
       "CheckExpression": "[ReceivedQty]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity actually received from the vendor."
       }
@@ -85,6 +109,9 @@
       "Nullable": false,
       "CheckExpression": "[RejectedQty]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity rejected during inspection."
       }
@@ -95,6 +122,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull([ReceivedQty]-[RejectedQty],(0.00))",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty."
       }
@@ -105,6 +135,9 @@
       "Nullable": false,
       "CheckExpression": "[UnitPrice]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Vendor's selling price of a single product."
       }
@@ -147,8 +180,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[Product]",
       "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Product.ProductID."
       }
@@ -159,8 +192,8 @@
       "RelatedTableSchema": "[Purchasing]",
       "RelatedTable": "[PurchaseOrderHeader]",
       "RelatedColumns": "[PurchaseOrderID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing PurchaseOrderHeader.PurchaseOrderID."
       }

@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The line number at which the error occurred."
       }
@@ -17,6 +20,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for ErrorLog records."
       }
@@ -26,6 +32,9 @@
       "DataType": "NVARCHAR(4000)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The message text of the error that occurred."
       }
@@ -35,6 +44,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The error number of the error that occurred."
       }
@@ -44,6 +56,9 @@
       "DataType": "NVARCHAR(126)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The name of the stored procedure or trigger where the error occurred."
       }
@@ -53,6 +68,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The severity of the error that occurred."
       }
@@ -62,6 +80,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The state number of the error that occurred."
       }
@@ -72,6 +93,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The date and time at which the error occurred."
       }
@@ -81,6 +105,9 @@
       "DataType": "SYSNAME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "The user who executed the batch in which the error occurred."
       }

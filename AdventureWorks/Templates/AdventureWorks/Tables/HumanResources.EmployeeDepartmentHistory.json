@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Employee identification number. Foreign key to Employee.BusinessEntityID."
       }
@@ -17,6 +20,9 @@
       "DataType": "SMALLINT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Department in which the employee worked including currently. Foreign key to Department.DepartmentID."
       }
@@ -26,6 +32,9 @@
       "DataType": "DATE",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the employee left the department. NULL = Current department."
       }
@@ -36,6 +45,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -45,6 +57,9 @@
       "DataType": "TINYINT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Identifies which 8-hour shift the employee works. Foreign key to Shift.Shift.ID."
       }
@@ -54,6 +69,9 @@
       "DataType": "DATE",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the employee started work in the department."
       }
@@ -110,8 +128,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Department]",
       "RelatedColumns": "[DepartmentID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Department.DepartmentID."
       }
@@ -122,8 +140,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
       }
@@ -134,8 +152,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Shift]",
       "RelatedColumns": "[ShiftID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Shift.ShiftID"
       }

@@ -9,6 +9,9 @@
       "Nullable": false,
       "Default": "0",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Engineering change approval number."
       }
@@ -18,6 +21,9 @@
       "DataType": "VARBINARY(MAX)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Complete document."
       }
@@ -28,6 +34,9 @@
       "Nullable": true,
       "ComputedExpression": "[DocumentNode].[GetLevel]()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Depth in the document hierarchy."
       }
@@ -37,6 +46,9 @@
       "DataType": "HIERARCHYID",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for Document records."
       }
@@ -46,6 +58,9 @@
       "DataType": "NVARCHAR(MAX)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Document abstract."
       }
@@ -55,6 +70,9 @@
       "DataType": "NVARCHAR(8)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "File extension indicating the document type. For example, .doc or .txt."
       }
@@ -64,6 +82,9 @@
       "DataType": "NVARCHAR(400)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "File name of the document"
       }
@@ -74,6 +95,9 @@
       "Nullable": false,
       "Default": "0",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = This is a folder, 1 = This is a document."
       }
@@ -84,6 +108,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -93,6 +120,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Employee who controls the document.  Foreign key to Employee.BusinessEntityID"
       }
@@ -102,6 +132,9 @@
       "DataType": "NCHAR(5)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Revision number of the document. "
       }
@@ -112,6 +145,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Required for FileStream."
       }
@@ -122,6 +158,9 @@
       "Nullable": false,
       "CheckExpression": "[Status]>=(1) AND [Status]<=(3)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "1 = Pending approval, 2 = Approved, 3 = Obsolete"
       }
@@ -131,6 +170,9 @@
       "DataType": "NVARCHAR(50)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Title of the document."
       }
@@ -194,7 +236,7 @@
       }
     },
     {
-      "Name": "[UQ__Document__F73921F78FD611F7]",
+      "Name": "[UQ__Document__F73921F79941AC4E]",
       "CompressionType": "NONE",
       "PrimaryKey": false,
       "Unique": true,
@@ -212,8 +254,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Employee.BusinessEntityID."
       }

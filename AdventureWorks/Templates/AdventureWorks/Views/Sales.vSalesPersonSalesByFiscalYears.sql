@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER VIEW [Sales].[vSalesPersonSalesByFiscalYears] 
 AS 
 
@@ -34,7 +35,8 @@ PIVOT
     SUM([SubTotal]) 
     FOR [FiscalYear] 
     IN ([2002], [2003], [2004])
-) AS pvt
+) AS pvt;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Sales', N'VIEW',N'vSalesPersonSalesByFiscalYears', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Uses PIVOT to return aggregated sales information for each sales representative.' , @level0type=N'SCHEMA',@level0name=N'Sales', @level1type=N'VIEW',@level1name=N'vSalesPersonSalesByFiscalYears'

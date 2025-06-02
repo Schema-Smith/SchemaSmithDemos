@@ -8,6 +8,9 @@
       "DataType": "ACCOUNTNUMBER",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Financial accounting number reference."
       }
@@ -17,6 +20,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Customer billing address. Foreign key to Address.AddressID."
       }
@@ -26,6 +32,9 @@
       "DataType": "NVARCHAR(128)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales representative comments."
       }
@@ -35,6 +44,9 @@
       "DataType": "VARCHAR(15)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Approval code provided by the credit card company."
       }
@@ -44,6 +56,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Credit card identification number. Foreign key to CreditCard.CreditCardID."
       }
@@ -53,6 +68,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Currency exchange rate used. Foreign key to CurrencyRate.CurrencyRateID."
       }
@@ -62,6 +80,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Customer identification number. Foreign key to Customer.BusinessEntityID."
       }
@@ -71,6 +92,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the order is due to the customer."
       }
@@ -82,6 +106,9 @@
       "Default": "0.00",
       "CheckExpression": "[Freight]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Shipping cost."
       }
@@ -92,6 +119,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -102,6 +132,9 @@
       "Nullable": false,
       "Default": "1",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = Order placed by sales person. 1 = Order placed online by customer."
       }
@@ -112,6 +145,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Dates the sales order was created."
       }
@@ -121,6 +157,9 @@
       "DataType": "ORDERNUMBER",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Customer purchase order number reference. "
       }
@@ -131,6 +170,9 @@
       "Nullable": false,
       "Default": "0",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Incremental number to track changes to the sales order over time."
       }
@@ -141,6 +183,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -150,6 +195,9 @@
       "DataType": "INT IDENTITY(1, 1) NOT FOR REPLICATION",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key."
       }
@@ -160,6 +208,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull(N'SO'+CONVERT([nvarchar](23),[SalesOrderID]),N'*** ERROR ***')",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Unique sales order identification number."
       }
@@ -169,6 +220,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales person who created the sales order. Foreign key to SalesPerson.BusinessEntityID."
       }
@@ -178,6 +232,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the order was shipped to the customer."
       }
@@ -187,6 +244,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Shipping method. Foreign key to ShipMethod.ShipMethodID."
       }
@@ -196,6 +256,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Customer shipping address. Foreign key to Address.AddressID."
       }
@@ -207,6 +270,9 @@
       "Default": "1",
       "CheckExpression": "[Status]>=(0) AND [Status]<=(8)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled"
       }
@@ -218,6 +284,9 @@
       "Default": "0.00",
       "CheckExpression": "[SubTotal]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID."
       }
@@ -229,6 +298,9 @@
       "Default": "0.00",
       "CheckExpression": "[TaxAmt]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Tax amount."
       }
@@ -238,6 +310,9 @@
       "DataType": "INT",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Territory in which the sale was made. Foreign key to SalesTerritory.SalesTerritoryID."
       }
@@ -248,6 +323,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull(([SubTotal]+[TaxAmt])+[Freight],(0))",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Total due from customer. Computed as Subtotal + TaxAmt + Freight."
       }
@@ -332,8 +410,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[Address]",
       "RelatedColumns": "[AddressID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Address.AddressID."
       }
@@ -344,8 +422,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[Address]",
       "RelatedColumns": "[AddressID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Address.AddressID."
       }
@@ -356,8 +434,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[CreditCard]",
       "RelatedColumns": "[CreditCardID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing CreditCard.CreditCardID."
       }
@@ -368,8 +446,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[CurrencyRate]",
       "RelatedColumns": "[CurrencyRateID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing CurrencyRate.CurrencyRateID."
       }
@@ -380,8 +458,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[Customer]",
       "RelatedColumns": "[CustomerID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Customer.CustomerID."
       }
@@ -392,8 +470,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesPerson]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesPerson.SalesPersonID."
       }
@@ -404,8 +482,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesTerritory]",
       "RelatedColumns": "[TerritoryID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesTerritory.TerritoryID."
       }
@@ -416,8 +494,8 @@
       "RelatedTableSchema": "[Purchasing]",
       "RelatedTable": "[ShipMethod]",
       "RelatedColumns": "[ShipMethodID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ShipMethod.ShipMethodID."
       }

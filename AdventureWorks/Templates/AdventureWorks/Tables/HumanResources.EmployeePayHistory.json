@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Employee identification number. Foreign key to Employee.BusinessEntityID."
       }
@@ -18,6 +21,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -28,6 +34,9 @@
       "Nullable": false,
       "CheckExpression": "[PayFrequency]=(2) OR [PayFrequency]=(1)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "1 = Salary received monthly, 2 = Salary received biweekly"
       }
@@ -38,6 +47,9 @@
       "Nullable": false,
       "CheckExpression": "[Rate]>=(6.50) AND [Rate]<=(200.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Salary hourly rate."
       }
@@ -47,6 +59,9 @@
       "DataType": "DATETIME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date the change in pay is effective"
       }
@@ -75,8 +90,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
       }
