@@ -7,67 +7,100 @@
       "Name": "[Address]",
       "DataType": "NVARCHAR(60)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[City]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[CompanyName]",
       "DataType": "NVARCHAR(40)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ContactName]",
       "DataType": "NVARCHAR(30)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ContactTitle]",
       "DataType": "NVARCHAR(30)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Country]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[CustomerID]",
       "DataType": "NCHAR(5)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Fax]",
       "DataType": "NVARCHAR(24)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Phone]",
       "DataType": "NVARCHAR(24)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[PostalCode]",
       "DataType": "NVARCHAR(10)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Region]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -126,7 +159,5 @@
       "FillFactor": 0,
       "IndexColumns": "[Region]"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

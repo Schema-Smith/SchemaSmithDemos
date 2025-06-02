@@ -7,32 +7,47 @@
       "Name": "[CategoryID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Discontinued]",
       "DataType": "BIT",
       "Nullable": false,
       "Default": "0",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ProductName]",
       "DataType": "NVARCHAR(40)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[QuantityPerUnit]",
       "DataType": "NVARCHAR(20)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ReorderLevel]",
@@ -40,13 +55,19 @@
       "Nullable": true,
       "Default": "0",
       "CheckExpression": "[ReorderLevel]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[SupplierID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[UnitPrice]",
@@ -54,7 +75,10 @@
       "Nullable": true,
       "Default": "0",
       "CheckExpression": "[UnitPrice]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[UnitsInStock]",
@@ -62,7 +86,10 @@
       "Nullable": true,
       "Default": "0",
       "CheckExpression": "[UnitsInStock]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[UnitsOnOrder]",
@@ -70,7 +97,10 @@
       "Nullable": true,
       "Default": "0",
       "CheckExpression": "[UnitsOnOrder]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -148,8 +178,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Categories]",
       "RelatedColumns": "[CategoryID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_Products_Suppliers]",
@@ -157,10 +187,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Suppliers]",
       "RelatedColumns": "[SupplierID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

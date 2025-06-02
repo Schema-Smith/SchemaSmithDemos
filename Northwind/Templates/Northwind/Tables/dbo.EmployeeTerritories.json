@@ -7,13 +7,19 @@
       "Name": "[EmployeeID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[TerritoryID]",
       "DataType": "NVARCHAR(20)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -36,8 +42,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Employees]",
       "RelatedColumns": "[EmployeeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_EmployeeTerritories_Territories]",
@@ -45,10 +51,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Territories]",
       "RelatedColumns": "[TerritoryID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

@@ -7,19 +7,28 @@
       "Name": "[CompanyName]",
       "DataType": "NVARCHAR(40)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Phone]",
       "DataType": "NVARCHAR(24)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipperID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -34,7 +43,5 @@
       "FillFactor": 0,
       "IndexColumns": "[ShipperID]"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

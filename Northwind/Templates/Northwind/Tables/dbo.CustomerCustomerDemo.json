@@ -7,13 +7,19 @@
       "Name": "[CustomerID]",
       "DataType": "NCHAR(5)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[CustomerTypeID]",
       "DataType": "NCHAR(10)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -36,8 +42,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[CustomerDemographics]",
       "RelatedColumns": "[CustomerTypeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_CustomerCustomerDemo_Customers]",
@@ -45,10 +51,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Customers]",
       "RelatedColumns": "[CustomerID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER view [dbo].[Product Sales for 1997] AS
 
 SELECT Categories.CategoryName, Products.ProductName, 
@@ -11,3 +12,5 @@ FROM (Categories INNER JOIN Products ON Categories.CategoryID = Products.Categor
 	ON Products.ProductID = "Order Details".ProductID
 WHERE (((Orders.ShippedDate) Between '19970101' And '19971231'))
 GROUP BY Categories.CategoryName, Products.ProductName
+
+GO

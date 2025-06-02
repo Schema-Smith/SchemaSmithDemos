@@ -7,13 +7,19 @@
       "Name": "[RegionDescription]",
       "DataType": "NCHAR(50)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[RegionID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -28,7 +34,5 @@
       "FillFactor": 0,
       "IndexColumns": "[RegionID]"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }
