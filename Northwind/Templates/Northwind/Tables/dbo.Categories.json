@@ -7,25 +7,37 @@
       "Name": "[CategoryID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[CategoryName]",
       "DataType": "NVARCHAR(15)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Description]",
       "DataType": "NTEXT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Picture]",
       "DataType": "IMAGE",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -51,7 +63,5 @@
       "FillFactor": 0,
       "IndexColumns": "[CategoryID]"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

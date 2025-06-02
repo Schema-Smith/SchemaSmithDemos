@@ -7,110 +7,164 @@
       "Name": "[Address]",
       "DataType": "NVARCHAR(60)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[BirthDate]",
       "DataType": "DATETIME",
       "Nullable": true,
       "CheckExpression": "[BirthDate]<getdate()",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[City]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Country]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[EmployeeID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Extension]",
       "DataType": "NVARCHAR(4)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[FirstName]",
       "DataType": "NVARCHAR(10)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[HireDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[HomePhone]",
       "DataType": "NVARCHAR(24)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[LastName]",
       "DataType": "NVARCHAR(20)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Notes]",
       "DataType": "NTEXT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Photo]",
       "DataType": "IMAGE",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[PhotoPath]",
       "DataType": "NVARCHAR(255)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[PostalCode]",
       "DataType": "NVARCHAR(10)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Region]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ReportsTo]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Title]",
       "DataType": "NVARCHAR(30)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[TitleOfCourtesy]",
       "DataType": "NVARCHAR(25)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -155,10 +209,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Employees]",
       "RelatedColumns": "[EmployeeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

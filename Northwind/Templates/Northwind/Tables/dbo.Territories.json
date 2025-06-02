@@ -7,19 +7,28 @@
       "Name": "[RegionID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[TerritoryDescription]",
       "DataType": "NCHAR(50)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[TerritoryID]",
       "DataType": "NVARCHAR(20)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -42,10 +51,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Region]",
       "RelatedColumns": "[RegionID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

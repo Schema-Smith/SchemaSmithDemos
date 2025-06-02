@@ -7,86 +7,128 @@
       "Name": "[CustomerID]",
       "DataType": "NCHAR(5)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[EmployeeID]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Freight]",
       "DataType": "MONEY",
       "Nullable": true,
       "Default": "0",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[OrderDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[OrderID]",
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[RequiredDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipAddress]",
       "DataType": "NVARCHAR(60)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipCity]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipCountry]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipName]",
       "DataType": "NVARCHAR(40)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShippedDate]",
       "DataType": "DATETIME",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipPostalCode]",
       "DataType": "NVARCHAR(10)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipRegion]",
       "DataType": "NVARCHAR(15)",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ShipVia]",
       "DataType": "INT",
       "Nullable": true,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -197,8 +239,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Customers]",
       "RelatedColumns": "[CustomerID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_Orders_Employees]",
@@ -206,8 +248,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Employees]",
       "RelatedColumns": "[EmployeeID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_Orders_Shippers]",
@@ -215,10 +257,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Shippers]",
       "RelatedColumns": "[ShipperID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }

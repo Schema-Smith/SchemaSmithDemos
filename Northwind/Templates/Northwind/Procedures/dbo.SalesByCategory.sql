@@ -20,3 +20,5 @@ WHERE OD.OrderID = O.OrderID
 	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
 GROUP BY ProductName
 ORDER BY ProductName
+
+GO

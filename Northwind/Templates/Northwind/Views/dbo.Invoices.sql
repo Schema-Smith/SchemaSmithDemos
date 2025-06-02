@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER view [dbo].[Invoices] AS
 
 SELECT Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, 
@@ -20,3 +21,5 @@ FROM 	Shippers INNER JOIN
 			INNER JOIN "Order Details" ON Orders.OrderID = "Order Details".OrderID) 
 		ON Products.ProductID = "Order Details".ProductID) 
 	ON Shippers.ShipperID = Orders.ShipVia
+
+GO

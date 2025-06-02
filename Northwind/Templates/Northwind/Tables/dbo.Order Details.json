@@ -9,19 +9,28 @@
       "Nullable": false,
       "Default": "0",
       "CheckExpression": "[Discount]>=(0) AND [Discount]<=(1)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[OrderID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[ProductID]",
       "DataType": "INT",
       "Nullable": false,
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[Quantity]",
@@ -29,7 +38,10 @@
       "Nullable": false,
       "Default": "1",
       "CheckExpression": "[Quantity]>(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     },
     {
       "Name": "[UnitPrice]",
@@ -37,7 +49,10 @@
       "Nullable": false,
       "Default": "0",
       "CheckExpression": "[UnitPrice]>=(0)",
-      "Persisted": false
+      "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": ""
     }
   ],
   "Indexes": [
@@ -104,8 +119,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Orders]",
       "RelatedColumns": "[OrderID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     },
     {
       "Name": "[FK_Order_Details_Products]",
@@ -113,10 +128,8 @@
       "RelatedTableSchema": "[dbo]",
       "RelatedTable": "[Products]",
       "RelatedColumns": "[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION"
     }
-  ],
-  "FullTextIndex": {
-  }
+  ]
 }
