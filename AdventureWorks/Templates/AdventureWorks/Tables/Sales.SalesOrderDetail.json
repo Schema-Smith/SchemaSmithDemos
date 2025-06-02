@@ -8,6 +8,9 @@
       "DataType": "NVARCHAR(25)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Shipment tracking number supplied by the shipper."
       }
@@ -18,6 +21,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull(([UnitPrice]*((1.0)-[UnitPriceDiscount]))*[OrderQty],(0.0))",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty."
       }
@@ -28,6 +34,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -38,6 +47,9 @@
       "Nullable": false,
       "CheckExpression": "[OrderQty]>(0)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Quantity ordered per product."
       }
@@ -47,6 +59,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Product sold to customer. Foreign key to Product.ProductID."
       }
@@ -57,6 +72,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -66,6 +84,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. One incremental unique number per product sold."
       }
@@ -75,6 +96,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
       }
@@ -84,6 +108,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Promotional code. Foreign key to SpecialOffer.SpecialOfferID."
       }
@@ -94,6 +121,9 @@
       "Nullable": false,
       "CheckExpression": "[UnitPrice]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Selling price of a single product."
       }
@@ -105,6 +135,9 @@
       "Default": "0.0",
       "CheckExpression": "[UnitPriceDiscount]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Discount amount."
       }
@@ -161,8 +194,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SalesOrderHeader]",
       "RelatedColumns": "[SalesOrderID]",
-      "CascadeOnDelete": true,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "CASCADE",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SalesOrderHeader.PurchaseOrderID."
       }
@@ -173,8 +206,8 @@
       "RelatedTableSchema": "[Sales]",
       "RelatedTable": "[SpecialOfferProduct]",
       "RelatedColumns": "[SpecialOfferID],[ProductID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing SpecialOfferProduct.SpecialOfferIDProductID."
       }

@@ -1,6 +1,7 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE OR ALTER VIEW [Person].[vAdditionalContactInfo] 
 AS 
 
@@ -48,7 +49,8 @@ FROM [Person].[Person]
 OUTER APPLY [AdditionalContactInfo].nodes(
     'declare namespace ci="http://schemas.microsoft.com/sqlserver/2004/07/adventure-works/ContactInfo"; 
     /ci:AdditionalContactInfo') AS ContactInfo(ref) 
-WHERE [AdditionalContactInfo] IS NOT NULL
+WHERE [AdditionalContactInfo] IS NOT NULL;
+
 GO
 IF NOT EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'Person', N'VIEW',N'vAdditionalContactInfo', NULL,NULL))
 	EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Displays the contact name and content from each element in the xml column AdditionalContactInfo for that person.' , @level0type=N'SCHEMA',@level0name=N'Person', @level1type=N'VIEW',@level1name=N'vAdditionalContactInfo'

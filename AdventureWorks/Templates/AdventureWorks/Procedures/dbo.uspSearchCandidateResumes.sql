@@ -1,6 +1,9 @@
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 GO
+
+--A stored procedure which demonstrates integrated full text search
+
 CREATE OR ALTER PROCEDURE [dbo].[uspSearchCandidateResumes]
     @searchString [nvarchar](1000),   
     @useInflectional [bit]=0,
@@ -55,4 +58,5 @@ BEGIN
             END
 
 END;
+
 GO

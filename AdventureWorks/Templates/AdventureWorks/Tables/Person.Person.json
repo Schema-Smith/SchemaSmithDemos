@@ -8,6 +8,9 @@
       "DataType": "XML([Person].[AdditionalContactInfoSchemaCollection])",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Additional contact information about the person stored in xml format. "
       }
@@ -17,6 +20,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key for Person records."
       }
@@ -26,6 +32,9 @@
       "DataType": "XML([Person].[IndividualSurveySchemaCollection])",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Personal information such as hobbies, and income collected from online shoppers. Used for sales analysis."
       }
@@ -37,6 +46,9 @@
       "Default": "0",
       "CheckExpression": "[EmailPromotion]>=(0) AND [EmailPromotion]<=(2)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners. "
       }
@@ -46,6 +58,9 @@
       "DataType": "NAME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "First name of the person."
       }
@@ -55,6 +70,9 @@
       "DataType": "NAME",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Last name of the person."
       }
@@ -64,6 +82,9 @@
       "DataType": "NAME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Middle name or middle initial of the person."
       }
@@ -74,6 +95,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -84,6 +108,9 @@
       "Nullable": false,
       "Default": "0",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "0 = The data in FirstName and LastName are stored in western style (first name, last name) order.  1 = Eastern style (last name, first name) order."
       }
@@ -94,6 +121,9 @@
       "Nullable": false,
       "CheckExpression": "[PersonType] IS NULL OR (upper([PersonType])='GC' OR upper([PersonType])='SP' OR upper([PersonType])='EM' OR upper([PersonType])='IN' OR upper([PersonType])='VC' OR upper([PersonType])='SC')",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary type of person: SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact"
       }
@@ -104,6 +134,9 @@
       "Nullable": false,
       "Default": "newid()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
       }
@@ -113,6 +146,9 @@
       "DataType": "NVARCHAR(10)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Surname suffix. For example, Sr. or Jr."
       }
@@ -122,6 +158,9 @@
       "DataType": "NVARCHAR(8)",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "A courtesy title. For example, Mr. or Ms."
       }
@@ -170,35 +209,50 @@
   ],
   "XmlIndexes": [
     {
-      "Name": "PXML_Person_AddContact",
-      "Column": "AdditionalContactInfo",
-      "IsPrimary": true
+      "Name": "[PXML_Person_AddContact]",
+      "Column": "[AdditionalContactInfo]",
+      "IsPrimary": true,
+      "ExtendedProperties": {
+        "MS_Description": "Primary XML index."
+      }
     },
     {
-      "Name": "PXML_Person_Demographics",
-      "Column": "Demographics",
-      "IsPrimary": true
+      "Name": "[PXML_Person_Demographics]",
+      "Column": "[Demographics]",
+      "IsPrimary": true,
+      "ExtendedProperties": {
+        "MS_Description": "Primary XML index."
+      }
     },
     {
-      "Name": "XMLPATH_Person_Demographics",
-      "Column": "Demographics",
+      "Name": "[XMLPATH_Person_Demographics]",
+      "Column": "[Demographics]",
       "IsPrimary": false,
-      "PrimaryIndex": "PXML_Person_Demographics",
-      "SecondaryIndexType": "PATH"
+      "PrimaryIndex": "[PXML_Person_Demographics]",
+      "SecondaryIndexType": "PATH",
+      "ExtendedProperties": {
+        "MS_Description": "Secondary XML index for path."
+      }
     },
     {
-      "Name": "XMLPROPERTY_Person_Demographics",
-      "Column": "Demographics",
+      "Name": "[XMLPROPERTY_Person_Demographics]",
+      "Column": "[Demographics]",
       "IsPrimary": false,
-      "PrimaryIndex": "PXML_Person_Demographics",
-      "SecondaryIndexType": "PROPERTY"
+      "PrimaryIndex": "[PXML_Person_Demographics]",
+      "SecondaryIndexType": "PROPERTY",
+      "ExtendedProperties": {
+        "MS_Description": "Secondary XML index for property."
+      }
     },
     {
-      "Name": "XMLVALUE_Person_Demographics",
-      "Column": "Demographics",
+      "Name": "[XMLVALUE_Person_Demographics]",
+      "Column": "[Demographics]",
       "IsPrimary": false,
-      "PrimaryIndex": "PXML_Person_Demographics",
-      "SecondaryIndexType": "VALUE"
+      "PrimaryIndex": "[PXML_Person_Demographics]",
+      "SecondaryIndexType": "VALUE",
+      "ExtendedProperties": {
+        "MS_Description": "Secondary XML index for value."
+      }
     }
   ],
   "ForeignKeys": [
@@ -208,8 +262,8 @@
       "RelatedTableSchema": "[Person]",
       "RelatedTable": "[BusinessEntity]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing BusinessEntity.BusinessEntityID."
       }

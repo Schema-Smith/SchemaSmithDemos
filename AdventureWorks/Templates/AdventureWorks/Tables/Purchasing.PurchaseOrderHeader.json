@@ -8,6 +8,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Employee who created the purchase order. Foreign key to Employee.BusinessEntityID."
       }
@@ -19,6 +22,9 @@
       "Default": "0.00",
       "CheckExpression": "[Freight]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Shipping cost."
       }
@@ -29,6 +35,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -39,6 +48,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Purchase order creation date."
       }
@@ -48,6 +60,9 @@
       "DataType": "INT IDENTITY(1, 1)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key."
       }
@@ -58,6 +73,9 @@
       "Nullable": false,
       "Default": "0",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Incremental number to track changes to the purchase order over time."
       }
@@ -67,6 +85,9 @@
       "DataType": "DATETIME",
       "Nullable": true,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Estimated shipment date from the vendor."
       }
@@ -76,6 +97,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Shipping method. Foreign key to ShipMethod.ShipMethodID."
       }
@@ -87,6 +111,9 @@
       "Default": "1",
       "CheckExpression": "[Status]>=(1) AND [Status]<=(4)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Order current status. 1 = Pending; 2 = Approved; 3 = Rejected; 4 = Complete"
       }
@@ -98,6 +125,9 @@
       "Default": "0.00",
       "CheckExpression": "[SubTotal]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Purchase order subtotal. Computed as SUM(PurchaseOrderDetail.LineTotal)for the appropriate PurchaseOrderID."
       }
@@ -109,6 +139,9 @@
       "Default": "0.00",
       "CheckExpression": "[TaxAmt]>=(0.00)",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Tax amount."
       }
@@ -119,6 +152,9 @@
       "Nullable": false,
       "ComputedExpression": "isnull(([SubTotal]+[TaxAmt])+[Freight],(0))",
       "Persisted": true,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Total due to vendor. Computed as Subtotal + TaxAmt + Freight."
       }
@@ -128,6 +164,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Vendor with whom the purchase order is placed. Foreign key to Vendor.BusinessEntityID."
       }
@@ -184,8 +223,8 @@
       "RelatedTableSchema": "[HumanResources]",
       "RelatedTable": "[Employee]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Employee.EmployeeID."
       }
@@ -196,8 +235,8 @@
       "RelatedTableSchema": "[Purchasing]",
       "RelatedTable": "[ShipMethod]",
       "RelatedColumns": "[ShipMethodID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ShipMethod.ShipMethodID."
       }
@@ -208,8 +247,8 @@
       "RelatedTableSchema": "[Purchasing]",
       "RelatedTable": "[Vendor]",
       "RelatedColumns": "[BusinessEntityID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Vendor.VendorID."
       }

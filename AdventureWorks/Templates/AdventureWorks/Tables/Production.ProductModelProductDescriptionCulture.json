@@ -8,6 +8,9 @@
       "DataType": "NCHAR(6)",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Culture identification number. Foreign key to Culture.CultureID."
       }
@@ -18,6 +21,9 @@
       "Nullable": false,
       "Default": "getdate()",
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Date and time the record was last updated."
       }
@@ -27,6 +33,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to ProductDescription.ProductDescriptionID."
       }
@@ -36,6 +45,9 @@
       "DataType": "INT",
       "Nullable": false,
       "Persisted": false,
+      "Sparse": false,
+      "Collation": "",
+      "DataMaskFunction": "",
       "ExtendedProperties": {
         "MS_Description": "Primary key. Foreign key to ProductModel.ProductModelID."
       }
@@ -64,8 +76,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[Culture]",
       "RelatedColumns": "[CultureID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing Culture.CultureID."
       }
@@ -76,8 +88,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[ProductDescription]",
       "RelatedColumns": "[ProductDescriptionID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ProductDescription.ProductDescriptionID."
       }
@@ -88,8 +100,8 @@
       "RelatedTableSchema": "[Production]",
       "RelatedTable": "[ProductModel]",
       "RelatedColumns": "[ProductModelID]",
-      "CascadeOnDelete": false,
-      "CascadeOnUpdate": false,
+      "DeleteAction": "NO ACTION",
+      "UpdateAction": "NO ACTION",
       "ExtendedProperties": {
         "MS_Description": "Foreign key constraint referencing ProductModel.ProductModelID."
       }
