@@ -6,5 +6,6 @@
   ],
   "ScriptTokens": {
     "NorthwindDb": "Northwind"
-  }
+  },
+  "Platform": "MSSQL"
 }

@@ -6,5 +6,6 @@
   ],
   "ScriptTokens": {
     "ClientDb": "Client"
-  }
+  },
+  "Platform": "MSSQL"
 }

@@ -6,5 +6,6 @@
   ],
   "ScriptTokens": {
     "AdventureWorksDb": "AdventureWorks"
-  }
+  },
+  "Platform": "MSSQL"
 }
